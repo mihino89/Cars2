@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="599.0" prefWidth="960.0" fx:controller="com.groundZer0.autobazar.controller.IndexController" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="index_layout" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="599.0" prefWidth="960.0" fx:controller="com.groundZer0.autobazar.controller.IndexController" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <VBox layoutY="-6.0" prefHeight="606.0" prefWidth="269.0" style="-fx-background-color: #474541;">
             <children>
@@ -35,7 +35,7 @@
         </VBox>
         <TilePane layoutX="735.0" layoutY="1.0" prefHeight="64.0" prefWidth="250.0" style="-fx-padding: 15;">
             <children>
-                <Button fx:id="login" alignment="TOP_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" text="Prihlasit">
+                <Button fx:id="login" alignment="TOP_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" text="Prihlasit" onAction="#do_login">
                     <font>
                         <Font size="14.0" />
                     </font>

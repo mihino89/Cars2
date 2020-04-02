@@ -10,7 +10,7 @@ import java.util.ResourceBundle;
 public class IndexController extends Controller{
 
     @FXML
-    private AnchorPane anchorPane;
+    private AnchorPane index_layout;
 
     @FXML
     private TextField search;
@@ -19,12 +19,9 @@ public class IndexController extends Controller{
     private Button login;
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        login.defaultButtonProperty().bind(login.focusedProperty());
-        login.setOnAction((e) -> do_login());
-    }
+    public void initialize(URL url, ResourceBundle resourceBundle) {}
 
     public void do_login(){
-        scene_switcher2(anchorPane, "login");
+        scene_switcher2(index_layout, "login");
     }
 }

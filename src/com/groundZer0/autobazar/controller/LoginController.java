@@ -14,13 +14,16 @@ import java.util.Objects;
 public class LoginController extends Controller{
 
     @FXML
-    private AnchorPane mainGridPane;
+    private AnchorPane login_layout;
 
     @FXML
     private TextField email;
 
     @FXML
     private PasswordField passwd;
+
+    @FXML
+    private Button to_index_button;
 
     @FXML
     private Label banner;
@@ -38,5 +41,9 @@ public class LoginController extends Controller{
             passwd.clear();
             errorAlert.show_alert("Error pri prihaseni", "Zly email alebo heslo");
         }
+    }
+
+    public void go_index(){
+        scene_switcher2(login_layout, "index");
     }
 }

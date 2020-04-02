@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="960.0" fx:controller="com.groundZer0.autobazar.controller.LoginController" style="-fx-background-color: e0dace;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="login_layout" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="960.0" fx:controller="com.groundZer0.autobazar.controller.LoginController" style="-fx-background-color: e0dace;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <GridPane layoutX="420.0" layoutY="300.0" prefHeight="139.0" prefWidth="485.0">
             <columnConstraints>
@@ -41,7 +41,7 @@
             </children>
         </GridPane>
         <ListView prefHeight="600.0" prefWidth="340.0" style="-fx-background-color: #474541;" />
-        <Button layoutX="5.0" mnemonicParsing="false" prefHeight="128.0" prefWidth="333.0" style="-fx-background-color: #474541;" text="Autobazar" textFill="WHITE">
+        <Button fx:id="to_index_button" layoutX="5.0" mnemonicParsing="false" prefHeight="128.0" prefWidth="333.0" style="-fx-background-color: #474541;" text="Autobazar" textFill="WHITE" onAction="#go_index">
             <font>
                 <Font name="Arial Black" size="18.0" />
             </font>
