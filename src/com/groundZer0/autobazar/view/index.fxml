@@ -11,49 +11,52 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane fx:id="index_layout" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="599.0" prefWidth="960.0" fx:controller="com.groundZer0.autobazar.controller.IndexController" xmlns:fx="http://javafx.com/fxml/1">
-    <children>
-        <VBox layoutY="-6.0" prefHeight="606.0" prefWidth="269.0" style="-fx-background-color: #474541;">
-            <children>
-                <Button mnemonicParsing="false" prefHeight="87.0" prefWidth="269.0" style="-fx-background-color: #474541;" text="Autobazar" textFill="WHITE">
-                    <font>
-                        <Font name="Arial Black" size="18.0" />
-                    </font>
-                    <cursor>
-                        <Cursor fx:constant="DEFAULT" />
-                    </cursor>
-                </Button>
-                <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="244.0" text="Button" textAlignment="CENTER" textFill="WHITE" visible="false">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </Button>
-            </children>
-            <cursor>
-                <Cursor fx:constant="HAND" />
-            </cursor>
-        </VBox>
-        <TilePane layoutX="735.0" layoutY="1.0" prefHeight="64.0" prefWidth="250.0" style="-fx-padding: 15;">
-            <children>
-                <Button fx:id="login" alignment="TOP_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" text="Prihlasit" onAction="#do_login">
-                    <font>
-                        <Font size="14.0" />
-                    </font>
-                </Button>
-                <Button alignment="TOP_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" text="Registrovat">
-                    <font>
-                        <Font size="14.0" />
-                    </font>
-                </Button>
-            </children>
-            <opaqueInsets>
-                <Insets />
-            </opaqueInsets>
-        </TilePane>
-        <Pane layoutX="339.0" layoutY="2.0" prefHeight="62.0" prefWidth="302.0">
-            <children>
-                <TextField  fx:id="search" layoutX="37.0" layoutY="19.0" prefHeight="25.0" prefWidth="200.0" promptText="vyhladavat" />
-            </children>
-        </Pane>
-    </children>
+<AnchorPane fx:id="index_layout" fx:controller="com.groundZer0.autobazar.controller.IndexController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="960.0" style="-fx-background-color: e0dace;" xmlns:fx="http://javafx.com/fxml/1">
+<children>
+    <VBox layoutY="-6.0" prefHeight="609.0" prefWidth="442.0" style="-fx-background-color: #474541;">
+        <children>
+            <Button mnemonicParsing="false" prefHeight="130.0" prefWidth="440.0" style="-fx-background-color: #474541;" text="Autobazar" textFill="WHITE">
+                <font>
+                    <Font name="Arial Black" size="18.0" />
+                </font>
+                <cursor>
+                    <Cursor fx:constant="DEFAULT" />
+                </cursor>
+            </Button>
+            <Pane prefHeight="52.0" prefWidth="442.0">
+                <children>
+                    <TextField fx:id="search" layoutX="32.0" layoutY="14.0" prefHeight="25.0" prefWidth="176.0" promptText="vyhladavat" style="-fx-background-color: e0dace;" />
+                </children>
+            </Pane>
+            <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="244.0" text="Button" textAlignment="CENTER" textFill="WHITE" visible="false">
+                <font>
+                    <Font size="18.0" />
+                </font>
+            </Button>
+            <Pane prefHeight="410.0" prefWidth="442.0">
+                <children>
+                    <Pane layoutX="-16.0" layoutY="20.0" prefHeight="62.0" prefWidth="300.0" />
+                </children>
+            </Pane>
+        </children>
+        <cursor>
+            <Cursor fx:constant="HAND" />
+        </cursor>
+    </VBox>
+    <Pane layoutX="471.0" layoutY="115.0" prefHeight="466.0" prefWidth="463.0" style="-fx-background-color: e0dace;" />
+    <Pane layoutX="557.0" prefHeight="81.0" prefWidth="403.0">
+        <children>
+            <Button fx:id="login" onAction="#do_login" layoutX="85.0" layoutY="18.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="142.0" style="-fx-background-color: e0dace; -fx-border-color: #474541;" text="Prihlasit sa" />
+            <Button alignment="CENTER" layoutX="237.0" layoutY="18.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="144.0" style="-fx-background-color: #474541;" text="Registrovat" textAlignment="CENTER" textFill="WHITE">
+                <font>
+                    <Font size="14.0" />
+                </font>
+                <opaqueInsets>
+                    <Insets />
+                </opaqueInsets>
+            </Button>
+        </children>
+    </Pane>
+</children>
 </AnchorPane>
+

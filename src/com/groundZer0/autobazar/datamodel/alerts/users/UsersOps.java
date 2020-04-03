@@ -44,6 +44,7 @@ public class UsersOps {
                     is_user_admin = true;
                 }
                 User user = new User(user_information[0], user_information[1], user_information[2], localDate, user_information[4], user_information[5], is_user_admin);
+                list_of_users.add(user);
             }
             bufferedReader.close();
         } catch (Exception e) {

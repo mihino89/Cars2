@@ -1,20 +1,16 @@
 package com.groundZer0.autobazar.controller;
 
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.HashMap;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
@@ -33,7 +29,6 @@ public class Controller implements Initializable {
     }
 
     public void scene_switcher2(AnchorPane anchorPane, String route){
-//        AnchorPane pane = FXMLLoader.load(getClass().getResource("../view/login.fxml"));
         try{
             anchorPane.getChildren().clear();
             anchorPane.getChildren().add(FXMLLoader.load(getClass().getResource("../view/" + route + ".fxml")));
@@ -41,23 +36,4 @@ public class Controller implements Initializable {
             e.printStackTrace();
         }
     }
-
-//    private HashMap<String, Pane> screenMap = new HashMap<>();
-//    private Scene main;
-//
-//    public Controller(Scene main) {
-//        this.main = main;
-//    }
-//
-//    protected void addScreen(String name, Pane pane){
-//        screenMap.put(name, pane);
-//    }
-
-//    protected void removeScreen(String name){
-//        screenMap.remove(name);
-//    }
-//
-//    protected void activate(String name){
-//        main.setRoot( screenMap.get(name) );
-//    }
 }
