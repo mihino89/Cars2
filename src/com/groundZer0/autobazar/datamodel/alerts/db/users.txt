@@ -1,0 +1,2 @@
+Admin null null 13-12-1998 admin@autobazar.sk admin123 true
+Test Testovaci 0042904082689 13-12-1998 test@gmail.com  test1. false

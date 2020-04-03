@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane fx:id="index_layout" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="599.0" prefWidth="960.0" fx:controller="com.groundZer0.autobazar.controller.IndexController" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="index_layout" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="599.0" prefWidth="960.0" fx:controller="com.groundZer0.autobazar.controller.IndexController" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <VBox layoutY="-6.0" prefHeight="606.0" prefWidth="269.0" style="-fx-background-color: #474541;">
             <children>
