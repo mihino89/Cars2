@@ -1,8 +1,8 @@
 package com.groundZer0.autobazar.controller;
 
 import com.groundZer0.autobazar.view.components.ErrorAlert;
-import com.groundZer0.autobazar.datamodel.alerts.users.User;
-import com.groundZer0.autobazar.datamodel.alerts.users.UsersOps;
+import com.groundZer0.autobazar.datamodel.users.User;
+import com.groundZer0.autobazar.datamodel.users.UsersOps;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.PasswordField;

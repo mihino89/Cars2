@@ -1,4 +1,4 @@
-package com.groundZer0.autobazar.datamodel.alerts.users;
+package com.groundZer0.autobazar.datamodel.users;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -18,7 +18,7 @@ public class UsersOps {
     /* Singleton */
     private static UsersOps usersOps = new UsersOps();
     /* DB of users */
-    private final String file_name = "src/com/groundZer0/autobazar/datamodel/alerts/db/users.txt";
+    private final String file_name = "src/com/groundZer0/autobazar/datamodel/db/users.txt";
     Path path = Paths.get(file_name);
 
     private ObservableList<User> list_of_users;

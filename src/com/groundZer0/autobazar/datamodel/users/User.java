@@ -1,4 +1,4 @@
-package com.groundZer0.autobazar.datamodel.alerts.users;
+package com.groundZer0.autobazar.datamodel.users;
 
 import java.time.LocalDate;
 
@@ -31,9 +31,6 @@ public class User {
         this.email = email;
         this.password = password;
         this.isAdmin = isAdmin;
-    }
-
-    public User(String first_name, String phone_number, String s, LocalDate localDate, String password, String s1) {
     }
 
     public String getFirst_name() {

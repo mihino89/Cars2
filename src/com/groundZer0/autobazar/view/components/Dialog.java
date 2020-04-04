@@ -1,7 +1,6 @@
 package com.groundZer0.autobazar.view.components;
 
 import com.groundZer0.autobazar.controller.RegistrationController;
-import com.groundZer0.autobazar.datamodel.alerts.users.User;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ButtonType;
 import javafx.scene.layout.AnchorPane;

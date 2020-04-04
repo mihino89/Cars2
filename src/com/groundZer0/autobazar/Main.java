@@ -1,6 +1,6 @@
 package com.groundZer0.autobazar;
 
-import com.groundZer0.autobazar.datamodel.alerts.users.UsersOps;
+import com.groundZer0.autobazar.datamodel.users.UsersOps;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
