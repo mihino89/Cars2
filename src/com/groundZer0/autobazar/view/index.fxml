@@ -11,6 +11,8 @@
 <?import javafx.scene.text.Font?>
 
 
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <AnchorPane fx:id="index_layout" fx:controller="com.groundZer0.autobazar.controller.IndexController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="960.0" style="-fx-background-color: e0dace;" xmlns:fx="http://javafx.com/fxml/1">
 <children>
     <VBox layoutY="-6.0" prefHeight="609.0" prefWidth="442.0" style="-fx-background-color: #474541;">
@@ -35,7 +37,8 @@
             </Button>
             <Pane prefHeight="410.0" prefWidth="442.0">
                 <children>
-                    <Pane layoutX="-16.0" layoutY="20.0" prefHeight="62.0" prefWidth="300.0" />
+<!--                    <Pane layoutX="-16.0" layoutY="20.0" prefHeight="62.0" prefWidth="300.0" />-->
+                    <ListView fx:id="list_of_vehicles" layoutX="20.0" layoutY="-24.0" prefHeight="405.0" prefWidth="403.0" style="-fx-background-color: #474541;" />
                 </children>
             </Pane>
         </children>

@@ -38,7 +38,7 @@ public class Vehicle {
         return passed_km;
     }
 
-    public String isState() {
+    public String getState() {
         return state;
     }
 
@@ -52,6 +52,11 @@ public class Vehicle {
 
     public String getOwner() {
         return owner;
+    }
+
+    @Override
+    public String toString() {
+        return brand + "\t" + model + "\t" + price;
     }
 
     //    public abstract void testing_ride();

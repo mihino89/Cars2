@@ -1,16 +1,14 @@
 package com.groundZer0.autobazar.datamodel.cars;
 
-import com.groundZer0.autobazar.datamodel.users.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.Objects;
 
 public class VehicleOps {
 
@@ -35,5 +33,35 @@ public class VehicleOps {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void users_saving() throws IOException {
+        BufferedWriter bufferedWriter = Files.newBufferedWriter(path);
+
+        try{
+            for(Vehicle vehicle : list_of_vehicles){
+                bufferedWriter.write(String.format("%s~%s~%s~%s~%s~%s~%s~%s",
+                        vehicle.getType(),
+                        vehicle.getBrand(),
+                        vehicle.getModel(),
+                        vehicle.getPrice(),
+                        vehicle.getPassed_km(),
+                        vehicle.getState(),
+                        vehicle.getOwner(),
+                        vehicle.getDescription()
+                ));
+                bufferedWriter.newLine();
+            }
+        } finally {
+            bufferedWriter.close();
+        }
+    }
+
+    public static VehicleOps getVehicleOps() {
+        return vehicleOps;
+    }
+
+    public ObservableList<Vehicle> getList_of_vehicles() {
+        return list_of_vehicles;
     }
 }

@@ -1,5 +1,6 @@
 package com.groundZer0.autobazar;
 
+import com.groundZer0.autobazar.datamodel.cars.VehicleOps;
 import com.groundZer0.autobazar.datamodel.users.UsersOps;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -26,12 +27,14 @@ public class Main extends Application {
     @Override
     public void init(){
         UsersOps.getUsersOps().users_loading();
+        VehicleOps.getVehicleOps().users_loading();
     }
 
     @Override
     public void stop() {
         try{
             UsersOps.getUsersOps().users_saving();
+            VehicleOps.getVehicleOps().users_saving();
         } catch (IOException e) {
             e.printStackTrace();
         }
