@@ -25,10 +25,15 @@ public class Main extends Application {
 
     @Override
     public void init(){
+        UsersOps.getUsersOps().users_loading();
+    }
+
+    @Override
+    public void stop() {
         try{
-            UsersOps.getUsersOps().users_loading();
-        } catch(IOException e) {
-            System.out.println(e.getMessage());
+            UsersOps.getUsersOps().users_saving();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

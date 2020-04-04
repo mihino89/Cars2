@@ -75,4 +75,16 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public LocalDate getBirth() {
+        return birth;
+    }
+
+    public String isAdmin() {
+        if(isAdmin){
+            return "true";
+        }
+
+        return "false";
+    }
 }

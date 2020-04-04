@@ -51,7 +51,7 @@
         </cursor>
     </Button>
     <Button onAction="#authenticate" layoutX="718.0" layoutY="322.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="142.0" style="-fx-background-color: e0dace; -fx-border-color: #474541;" text="Prihlasit sa" />
-    <Button layoutX="559.0" layoutY="410.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="301.0" style="-fx-background-color: #474541;" text="Registrovat" textFill="WHITE">
+    <Button fx:id="registration" onAction="#registration" layoutX="559.0" layoutY="410.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="301.0" style="-fx-background-color: #474541;" text="Registrovat" textFill="WHITE">
         <font>
             <Font size="14.0" />
         </font>

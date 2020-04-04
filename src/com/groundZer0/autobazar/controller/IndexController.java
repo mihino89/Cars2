@@ -28,8 +28,7 @@ public class IndexController extends Controller{
         scene_switcher2(index_layout, "login");
     }
 
-    public void registration_dialog() throws MalformedURLException {
-        Dialog registration_dialog = new Dialog(index_layout, "Registracia", "Tento dialog sluzi na registraciu noveho uzivatela", "registrationModal.fxml", "registration");
-        registration_dialog.create_dialog();
+    public void registration() {
+        this.registration_dialog(index_layout);
     }
 }

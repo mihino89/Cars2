@@ -1,4 +1,4 @@
-package com.groundZer0.autobazar.datamodel.alerts;
+package com.groundZer0.autobazar.view.components;
 
 import javafx.scene.control.Alert;
 import javafx.stage.Modality;

@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -18,6 +19,7 @@ public class UsersOps {
     private static UsersOps usersOps = new UsersOps();
     /* DB of users */
     private final String file_name = "src/com/groundZer0/autobazar/datamodel/alerts/db/users.txt";
+    Path path = Paths.get(file_name);
 
     private ObservableList<User> list_of_users;
     private DateTimeFormatter dateTimeFormatter;
@@ -27,12 +29,11 @@ public class UsersOps {
         dateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
     }
 
-    public void users_loading() throws IOException {
+    public void users_loading() {
         String line_file_reader;
         boolean is_user_admin = false;
 
         list_of_users = FXCollections.observableArrayList();
-        Path path = Paths.get(file_name);
 
         try (BufferedReader bufferedReader = Files.newBufferedReader(path)) {
             while ((line_file_reader = bufferedReader.readLine()) != null) {
@@ -49,6 +50,27 @@ public class UsersOps {
             bufferedReader.close();
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    public void users_saving() throws IOException {
+        BufferedWriter bufferedWriter = Files.newBufferedWriter(path);
+
+        try{
+            for(User user : list_of_users){
+                bufferedWriter.write(String.format("%s %s %s %s %s %s %s",
+                        user.getFirst_name(),
+                        user.getLast_name(),
+                        user.getPhone_number(),
+                        user.getBirth().format(dateTimeFormatter),
+                        user.getEmail(),
+                        user.getPassword(),
+                        user.isAdmin()
+                ));
+                bufferedWriter.newLine();
+            }
+        } finally {
+            bufferedWriter.close();
         }
     }
 

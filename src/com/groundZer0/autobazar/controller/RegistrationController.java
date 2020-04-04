@@ -1,6 +1,6 @@
 package com.groundZer0.autobazar.controller;
 
-import com.groundZer0.autobazar.datamodel.alerts.ErrorAlert;
+import com.groundZer0.autobazar.view.components.ErrorAlert;
 import com.groundZer0.autobazar.datamodel.alerts.users.User;
 import com.groundZer0.autobazar.datamodel.alerts.users.UsersOps;
 import javafx.fxml.FXML;
