@@ -65,4 +65,8 @@ public class UsersOps {
     public void setUsers(ObservableList<User> users) {
         this.list_of_users = users;
     }
+
+    public void add_user(User new_user){
+        list_of_users.add(new_user);
+    }
 }

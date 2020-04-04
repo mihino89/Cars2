@@ -47,7 +47,7 @@
     <Pane layoutX="557.0" prefHeight="81.0" prefWidth="403.0">
         <children>
             <Button fx:id="login" onAction="#do_login" layoutX="85.0" layoutY="18.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="142.0" style="-fx-background-color: e0dace; -fx-border-color: #474541;" text="Prihlasit sa" />
-            <Button alignment="CENTER" layoutX="237.0" layoutY="18.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="144.0" style="-fx-background-color: #474541;" text="Registrovat" textAlignment="CENTER" textFill="WHITE">
+            <Button fx:id="registration" onAction="#registration_dialog" alignment="CENTER" layoutX="237.0" layoutY="18.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="144.0" style="-fx-background-color: #474541;" text="Registrovat" textAlignment="CENTER" textFill="WHITE">
                 <font>
                     <Font size="14.0" />
                 </font>

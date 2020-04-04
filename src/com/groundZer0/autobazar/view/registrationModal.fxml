@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<DialogPane fx:controller="com.groundZer0.autobazar.controller.RegistrationController"
+            xmlns:fx="http://javafx.com/fxml">
+    <headerText>
+        Vytvorenie konta
+    </headerText>
+    <content>
+        <GridPane vgap="10" hgap="10">
+            <Label text="Meno: " GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextField fx:id="first_name" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+            <Label text="Priezvisko:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <TextField fx:id="last_name" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+            <Label text="Telefonne cislo:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <TextField fx:id="phone_number" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+            <Label text="Datum narodenia:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+            <DatePicker fx:id="birth" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+            <Label text="Email:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+            <TextField fx:id="email" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+            <Label text="Heslo:" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+            <PasswordField fx:id="password" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+            <Label text="Kontrola hesla:" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+            <PasswordField fx:id="password_control" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+        </GridPane>
+    </content>
+</DialogPane>
