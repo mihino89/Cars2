@@ -1,6 +1,7 @@
 package com.groundZer0.autobazar.datamodel.cars;
 
 public class Vehicle {
+    private String id;
     private String type;
     private String headline;
     private String brand;
@@ -9,10 +10,11 @@ public class Vehicle {
     private int passed_km;
 
     private String state;
-    private String owner;
+    private String owner_email;
     private String description;
 
-    public Vehicle(String type, String headline, String brand, String model, int price, int passed_km, String state, String owner, String description) {
+    public Vehicle(String id, String type, String headline, String brand, String model, int price, int passed_km, String state, String owner, String description) {
+        this.id = id;
         this.type = type;
         this.headline = headline;
         this.brand = brand;
@@ -20,7 +22,7 @@ public class Vehicle {
         this.price = price;
         this.passed_km = passed_km;
         this.state = state;
-        this.owner = owner;
+        this.owner_email = owner;
         this.description = description;
     }
 
@@ -52,12 +54,16 @@ public class Vehicle {
         return type;
     }
 
-    public String getOwner() {
-        return owner;
+    public String getOwner_email() {
+        return owner_email;
     }
 
     public String getHeadline() {
         return headline;
+    }
+
+    public String getId() {
+        return id;
     }
 
     @Override

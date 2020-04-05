@@ -3,6 +3,7 @@ package com.groundZer0.autobazar.controller;
 import com.groundZer0.autobazar.datamodel.cars.Vehicle;
 import com.groundZer0.autobazar.datamodel.cars.VehicleOps;
 import com.groundZer0.autobazar.datamodel.users.User;
+import com.groundZer0.autobazar.datamodel.users.UsersOps;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -10,9 +11,12 @@ import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
+import java.util.List;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class IndexController extends Controller{
+    private List<User> list_of_users;
 
     @FXML
     private AnchorPane index_layout;
@@ -50,12 +54,18 @@ public class IndexController extends Controller{
     @FXML
     private Button login;
 
-//    private User find_owner_of_vehicle(){
-//
-//    }
+    private User find_owner_of_vehicle(String vehicle_owner_email){
+        for(User user : list_of_users){
+            if (Objects.equals(user.getEmail(), vehicle_owner_email)){
+                return user;
+            }
+        }
+        return null;
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        list_of_users = UsersOps.getUsersOps().getUsers();
 
         list_of_vehicles.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Vehicle>() {
             @Override
@@ -67,7 +77,20 @@ public class IndexController extends Controller{
                     vehicle_model.setText(vehicle1.getModel());
                     vehicle_description.setText(vehicle1.getDescription());
                     vehicle_price.setText(String.valueOf(vehicle1.getPrice()));
-                    owner.setText(vehicle1.getOwner());
+                    owner_email.setText(vehicle1.getOwner_email());
+                    User vehicle_owner = find_owner_of_vehicle(vehicle1.getOwner_email());
+                    if(vehicle_owner != null){
+                        if(Objects.equals(vehicle_owner.getLast_name(), "null")){
+                            owner.setText(vehicle_owner.getFirst_name());
+                        } else{
+                            owner.setText(vehicle_owner.getFirst_name() + " " + vehicle_owner.getLast_name());
+                        }
+                        owner_phone.setText(vehicle_owner.getPhone_number());
+                    } else {
+                        owner.setText("Unknown");
+                        owner_phone.setText("Unknown");
+                    }
+
                 }
             }
         });

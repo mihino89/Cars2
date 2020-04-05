@@ -26,7 +26,7 @@ public class VehicleOps {
         try (BufferedReader bufferedReader = Files.newBufferedReader(path)) {
             while ((line_file_reader = bufferedReader.readLine()) != null) {
                 String[] car_information = line_file_reader.split("~");
-                Vehicle new_vehicle = new Vehicle(car_information[0],car_information[1], car_information[2], car_information[3], Integer.parseInt(car_information[4]), Integer.parseInt(car_information[5]), car_information[6], car_information[7], car_information[8]);
+                Vehicle new_vehicle = new Vehicle(car_information[0], car_information[1],car_information[2], car_information[3], car_information[4], Integer.parseInt(car_information[5]), Integer.parseInt(car_information[6]), car_information[7], car_information[8], car_information[9]);
                 list_of_vehicles.add(new_vehicle);
             }
             bufferedReader.close();
@@ -40,7 +40,8 @@ public class VehicleOps {
 
         try{
             for(Vehicle vehicle : list_of_vehicles){
-                bufferedWriter.write(String.format("%s~%s~%s~%s~%s~%s~%s~%s~%s",
+                bufferedWriter.write(String.format("%s~%s~%s~%s~%s~%s~%s~%s~%s~%s",
+                        vehicle.getId(),
                         vehicle.getType(),
                         vehicle.getHeadline(),
                         vehicle.getBrand(),
@@ -48,7 +49,7 @@ public class VehicleOps {
                         vehicle.getPrice(),
                         vehicle.getPassed_km(),
                         vehicle.getState(),
-                        vehicle.getOwner(),
+                        vehicle.getOwner_email(),
                         vehicle.getDescription()
                 ));
                 bufferedWriter.newLine();
