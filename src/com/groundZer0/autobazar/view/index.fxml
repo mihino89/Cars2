@@ -46,7 +46,36 @@
             <Cursor fx:constant="HAND" />
         </cursor>
     </VBox>
-    <Pane layoutX="471.0" layoutY="115.0" prefHeight="466.0" prefWidth="463.0" style="-fx-background-color: e0dace;" />
+    <Pane layoutX="471.0" layoutY="115.0" prefHeight="466.0" prefWidth="463.0" style="-fx-background-color: e0dace;">
+        <children>
+            <Label fx:id="headline" layoutX="14.0" layoutY="14.0" prefHeight="25.0" prefWidth="440.0" text="Headline">
+                <font>
+                    <Font name="System Bold" size="12.0" />
+                </font>
+            </Label>
+            <Label layoutX="47.0" layoutY="367.0" prefHeight="25.0" prefWidth="88.0" text="Meno:">
+                <font>
+                    <Font name="System Bold" size="12.0" />
+                </font>
+            </Label>
+            <Label layoutX="47.0" layoutY="91.0" prefHeight="25.0" prefWidth="187.0" text="Model vozidla:" />
+            <Label fx:id="vehicle_brand" layoutX="178.0" layoutY="56.0" prefHeight="25.0" prefWidth="204.0" />
+            <Label fx:id="vehicle_model" layoutX="178.0" layoutY="91.0" prefHeight="25.0" prefWidth="204.0" />
+            <Label fx:id="vehicle_description" layoutX="14.0" layoutY="148.0" prefHeight="190.0" prefWidth="440.0" WrapText="true" />
+            <Label layoutX="47.0" layoutY="56.0" prefHeight="25.0" prefWidth="187.0" text="Znacka vozidla:" />
+            <Label fx:id="owner" layoutX="178.0" layoutY="367.0" prefHeight="25.0" prefWidth="204.0" />
+            <Label layoutX="47.0" layoutY="385.0" prefHeight="25.0" prefWidth="110.0" text="Telefonne cislo:" />
+            <Label fx:id="owner_email" layoutX="178.0" layoutY="404.0" prefHeight="25.0" prefWidth="204.0" />
+            <Label fx:id="owner_phone" layoutX="178.0" layoutY="385.0" prefHeight="25.0" prefWidth="204.0" />
+            <Label layoutX="47.0" layoutY="404.0" prefHeight="25.0" prefWidth="99.0" text="Email:" />
+            <Label layoutX="47.0" layoutY="348.0" prefHeight="25.0" prefWidth="88.0" text="Cena:">
+                <font>
+                    <Font name="System Bold" size="12.0" />
+                </font>
+            </Label>
+            <Label fx:id="vehicle_price" layoutX="178.0" layoutY="348.0" prefHeight="25.0" prefWidth="152.0" />
+        </children>
+    </Pane>
     <Pane layoutX="557.0" prefHeight="81.0" prefWidth="403.0">
         <children>
             <Button fx:id="login" onAction="#do_login" layoutX="85.0" layoutY="18.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="142.0" style="-fx-background-color: e0dace; -fx-border-color: #474541;" text="Prihlasit sa" />
