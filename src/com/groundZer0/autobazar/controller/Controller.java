@@ -67,4 +67,9 @@ public class Controller implements Initializable {
     public void setLogin_role(String login_role) {
         this.login_role = login_role;
     }
+
+    public void logout(AnchorPane anchorPane){
+        session_closed();
+        scene_switcher2(anchorPane, "index");
+    }
 }

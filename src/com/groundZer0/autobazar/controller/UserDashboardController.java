@@ -13,7 +13,6 @@ public class UserDashboardController extends Controller {
     public AnchorPane user_dashboard_layout;
 
     public void do_logout(){
-        session_closed();
-        scene_switcher2(user_dashboard_layout, "index");
+        this.logout(user_dashboard_layout);
     }
 }
