@@ -12,8 +12,6 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.file.Paths;
-import java.security.Key;
-import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -22,7 +20,7 @@ public class Controller implements Initializable {
     private List<User> list_of_users;
     private String login_role;
     private UserSession userSession;
-    private String session_token;
+    private String session_token = null;
 
     private final String base_url = "src/com/groundZer0/autobazar/view/";
 
@@ -58,12 +56,12 @@ public class Controller implements Initializable {
         session_token = userSession.encrypt(user.getPassword(), userSession.getPublicKey());
     }
 
-    protected void check_session(){
-        // treba skontrolovt cas sessiony
+    protected boolean check_session(){
+        return session_token != null;
     }
 
     protected void session_closed(){
-
+        userSession = null;
     }
 
     public void setLogin_role(String login_role) {

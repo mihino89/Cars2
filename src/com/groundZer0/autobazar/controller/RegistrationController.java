@@ -1,6 +1,6 @@
 package com.groundZer0.autobazar.controller;
 
-import com.groundZer0.autobazar.view.components.ErrorAlert;
+import com.groundZer0.autobazar.view.components.Alerts;
 import com.groundZer0.autobazar.datamodel.users.User;
 import com.groundZer0.autobazar.datamodel.users.UsersOps;
 import javafx.fxml.FXML;
@@ -34,14 +34,15 @@ public class RegistrationController {
     @FXML
     private PasswordField password_control;
 
-    ErrorAlert errorAlert = new ErrorAlert();
+    Alerts alerts;
 
     public void user_registration() {
         User new_user;
 
         /* Validacia zhody hesiel */
         if(!Objects.equals(password.getText(), password_control.getText())){
-            errorAlert.show_alert("Error pri registracii", "Hesla sa nezhoduju");
+            alerts = new Alerts("ERROR");
+            alerts.show_alert("Error pri registracii", "Hesla sa nezhoduju");
             password.clear();
             password_control.clear();
 

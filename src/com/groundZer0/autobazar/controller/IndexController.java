@@ -4,6 +4,7 @@ import com.groundZer0.autobazar.datamodel.cars.Vehicle;
 import com.groundZer0.autobazar.datamodel.cars.VehicleOps;
 import com.groundZer0.autobazar.datamodel.users.User;
 import com.groundZer0.autobazar.datamodel.users.UsersOps;
+import com.groundZer0.autobazar.view.components.Alerts;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -17,6 +18,7 @@ import java.util.ResourceBundle;
 
 public class IndexController extends Controller{
     private List<User> list_of_users;
+    Alerts alerts;
 
     @FXML
     private AnchorPane index_layout;
@@ -101,6 +103,13 @@ public class IndexController extends Controller{
 
     public void do_login(){
         scene_switcher2(index_layout, "login");
+    }
+
+    public void buy_car(){
+        if(!check_session()){
+            alerts = new Alerts("WARNING");
+            alerts.show_alert("Je potrebne prihlasenie", "Na to aby ste mohli kupit auto, je potrebne sa prihlasit");
+        }
     }
 
     public void registration() {

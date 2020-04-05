@@ -1,6 +1,6 @@
 package com.groundZer0.autobazar.controller;
 
-import com.groundZer0.autobazar.view.components.ErrorAlert;
+import com.groundZer0.autobazar.view.components.Alerts;
 import com.groundZer0.autobazar.datamodel.users.User;
 import com.groundZer0.autobazar.datamodel.users.UsersOps;
 import javafx.fxml.FXML;
@@ -36,7 +36,7 @@ public class LoginController extends Controller{
     @FXML
     private Label banner;
 
-    ErrorAlert errorAlert = new ErrorAlert();
+    Alerts alerts;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -47,16 +47,16 @@ public class LoginController extends Controller{
         /* Set role in loggin to control user in future requests */
         this.setLogin_role(role);
 
-//        if(Objects.equals(role, "user")){
-//            this.scene_switcher2(login_layout, "userDashboard");
-//        }
+        if(Objects.equals(role, "user")){
+            this.scene_switcher2(login_layout, "userDashboard");
+            return;
+        }
 
-        this.scene_switcher2(login_layout, "userDashboard");
+        this.scene_switcher2(login_layout, "adminDashboard");
     }
 
     public void authentication(){
         for(User user : list_of_users){
-            System.out.println("email: " + user.getEmail());
             if (Objects.equals(user.getEmail(), email.getText().trim()) && Objects.equals(user.getPassword(), passwd.getText().trim())) {
                 session_start(user);
                 authorization(user.getPrivilages());
@@ -66,7 +66,8 @@ public class LoginController extends Controller{
 
         email.clear();
         passwd.clear();
-        errorAlert.show_alert("Error pri prihaseni", "Zly email alebo heslo");
+        alerts = new Alerts("ERROR");
+        alerts.show_alert("Error pri prihaseni", "Zly email alebo heslo");
     }
 
     public void go_index(){
