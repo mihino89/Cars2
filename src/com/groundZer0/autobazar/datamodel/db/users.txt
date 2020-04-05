@@ -1,3 +1,3 @@
-Admin null null 13-12-1998 admin admin true
-Test Testovaci 0042904082689 13-12-1998 test@gmail.com test true
-martin mihalovic 932432842 30-03-2020 test@test.com test true
+Admin null null 13-12-1998 admin admin admin
+Test Testovaci 0042904082689 13-12-1998 test@gmail.com test user
+martin mihalovic 932432842 30-03-2020 test@test.com test user

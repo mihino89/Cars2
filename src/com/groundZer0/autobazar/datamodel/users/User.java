@@ -12,25 +12,25 @@ public class User {
     /* Credentials */
     private String email;
     private String password;
-    private boolean isAdmin;
+    private String privilages;
 
-    public User(String first_name, String last_name, String phone_number, LocalDate birth, String email, String password, boolean isAdmin) {
+    public User(String first_name, String last_name, String phone_number, LocalDate birth, String email, String password, String privilages) {
         this.first_name = first_name;
         this.last_name = last_name;
         this.phone_number = phone_number;
         this.birth = birth;
         this.email = email;
         this.password = password;
-        this.isAdmin = isAdmin;
+        this.privilages = privilages;
     }
 
-    public User(String first_name, String phone_number, LocalDate birth, String email, String password, boolean isAdmin) {
+    public User(String first_name, String phone_number, LocalDate birth, String email, String password, String privilages) {
         this.first_name = first_name;
         this.phone_number = phone_number;
         this.birth = birth;
         this.email = email;
         this.password = password;
-        this.isAdmin = isAdmin;
+        this.privilages = privilages;
     }
 
     public String getFirst_name() {
@@ -77,11 +77,7 @@ public class User {
         return birth;
     }
 
-    public String isAdmin() {
-        if(isAdmin){
-            return "true";
-        }
-
-        return "false";
+    public String getPrivilages() {
+        return privilages;
     }
 }

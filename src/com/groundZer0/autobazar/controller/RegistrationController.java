@@ -58,10 +58,10 @@ public class RegistrationController {
 
         if(last_name_v.equals("")){
             System.out.println("uzivatel nezadal priezvisko");
-            new_user = new User(first_name_v, phone_number_v, birth_v, email_v, password_v, false);
+            new_user = new User(first_name_v, phone_number_v, birth_v, email_v, password_v, "user");
         } else {
             System.out.println("uzivatel zadal aj priezvisko");
-            new_user = new User(first_name_v, last_name_v, phone_number_v, birth_v, email_v, password_v, false);
+            new_user = new User(first_name_v, last_name_v, phone_number_v, birth_v, email_v, password_v, "user");
         }
 
         /* add new user to users array */

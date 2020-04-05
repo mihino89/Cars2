@@ -43,12 +43,23 @@ public class LoginController extends Controller{
         list_of_users = UsersOps.getUsersOps().getUsers();
     }
 
-    public void authenticate(){
+    public void authorization(String role){
+        /* Set role in loggin to control user in future requests */
+        this.setLogin_role(role);
+
+//        if(Objects.equals(role, "user")){
+//            this.scene_switcher2(login_layout, "userDashboard");
+//        }
+
+        this.scene_switcher2(login_layout, "userDashboard");
+    }
+
+    public void authentication(){
         for(User user : list_of_users){
             System.out.println("email: " + user.getEmail());
             if (Objects.equals(user.getEmail(), email.getText().trim()) && Objects.equals(user.getPassword(), passwd.getText().trim())) {
-                System.out.println("success login");
-                this.scene_switcher2(login_layout, "dashboard");
+                session_start(user);
+                authorization(user.getPrivilages());
                 return;
             }
         }

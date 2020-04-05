@@ -90,7 +90,6 @@ public class IndexController extends Controller{
                         owner.setText("Unknown");
                         owner_phone.setText("Unknown");
                     }
-
                 }
             }
         });

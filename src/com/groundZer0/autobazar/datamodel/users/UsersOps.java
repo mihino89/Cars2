@@ -11,7 +11,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Objects;
 
 public class UsersOps {
 
@@ -31,7 +30,6 @@ public class UsersOps {
 
     public void users_loading() {
         String line_file_reader;
-        boolean is_user_admin = false;
 
         list_of_users = FXCollections.observableArrayList();
 
@@ -41,10 +39,7 @@ public class UsersOps {
 
                 String user_birth = user_information[3];
                 LocalDate localDate = LocalDate.parse(user_birth, dateTimeFormatter);
-                if (Objects.equals("true", user_information[6])){
-                    is_user_admin = true;
-                }
-                User user = new User(user_information[0], user_information[1], user_information[2], localDate, user_information[4], user_information[5], is_user_admin);
+                User user = new User(user_information[0], user_information[1], user_information[2], localDate, user_information[4], user_information[5], user_information[6]);
                 list_of_users.add(user);
             }
             bufferedReader.close();
@@ -65,7 +60,7 @@ public class UsersOps {
                         user.getBirth().format(dateTimeFormatter),
                         user.getEmail(),
                         user.getPassword(),
-                        user.isAdmin()
+                        user.getPrivilages()
                 ));
                 bufferedWriter.newLine();
             }

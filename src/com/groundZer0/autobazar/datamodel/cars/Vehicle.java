@@ -70,12 +70,12 @@ public class Vehicle {
     public String toString() {
         String check_long_headline = this.headline;
 
-        if(check_long_headline.length() > 40){
-            check_long_headline = check_long_headline.substring(0,33) + "...";
+        if(check_long_headline.length() > 50){
+            check_long_headline = check_long_headline.substring(0,47) + "...";
         }
 
-        String format = "%-40s%25s%n\n";
-        return String.format(format, check_long_headline, price);
+        String format = "%-60s%n\n";
+        return String.format(format, check_long_headline);
     }
 
     //    public abstract void testing_ride();
