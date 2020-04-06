@@ -29,7 +29,6 @@ public class Controller implements Initializable {
         list_of_users = UsersOps.getUsersOps().getUsers();
     }
 
-
     public void scene_switcher2(AnchorPane anchorPane, String route){
         try{
             anchorPane.getChildren().clear();

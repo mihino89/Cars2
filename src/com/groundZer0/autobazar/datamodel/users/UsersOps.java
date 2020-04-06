@@ -86,4 +86,8 @@ public class UsersOps {
     public void add_user(User new_user){
         list_of_users.add(new_user);
     }
+
+    public void remove_user(User new_user){
+        list_of_users.remove(new_user);
+    }
 }
