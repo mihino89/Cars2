@@ -28,7 +28,7 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <Pane prefHeight="548.0" prefWidth="442.0">
+            <Pane prefHeight="547.0" prefWidth="442.0">
                <children>
                   <Button layoutX="31.0" layoutY="28.0" mnemonicParsing="false" prefHeight="170.0" prefWidth="170.0" style="-fx-background-color: e0dace; -fx-background-radius: 25;" text="Prehlad uzivatelov" textAlignment="CENTER" wrapText="true">
                      <font>
