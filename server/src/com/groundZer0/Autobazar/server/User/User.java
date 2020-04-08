@@ -1,9 +1,9 @@
-package com.groundZer0.autobazar.datamodel.users;
+package com.groundZer0.Autobazar.server.User;
 
 import java.io.Serializable;
 import java.time.LocalDate;
 
-public class User implements Serializable{
+public class User {
     /* Personal informations */
     private String first_name;
     private String last_name;
@@ -32,9 +32,6 @@ public class User implements Serializable{
         this.email = email;
         this.password = password;
         this.privilages = privilages;
-    }
-
-    public User(String dsa, String dsa1, String dsa2, String s, String dsa3, String dsa4, String user) {
     }
 
     public String getFirst_name() {

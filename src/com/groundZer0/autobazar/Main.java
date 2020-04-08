@@ -2,6 +2,7 @@ package com.groundZer0.autobazar;
 
 import com.groundZer0.autobazar.datamodel.cars.VehicleOps;
 import com.groundZer0.autobazar.datamodel.users.UsersOps;
+import com.groundZer0.autobazar.networking.Connection;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

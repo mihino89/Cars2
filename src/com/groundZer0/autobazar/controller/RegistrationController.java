@@ -1,5 +1,6 @@
 package com.groundZer0.autobazar.controller;
 
+import com.groundZer0.autobazar.networking.Connection;
 import com.groundZer0.autobazar.view.components.Alerts;
 import com.groundZer0.autobazar.datamodel.users.User;
 import com.groundZer0.autobazar.datamodel.users.UsersOps;
@@ -11,7 +12,7 @@ import javafx.scene.control.TextField;
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class RegistrationController {
+public class RegistrationController extends Controller {
 
     @FXML
     private TextField first_name;
@@ -37,8 +38,6 @@ public class RegistrationController {
     Alerts alerts;
 
     public void user_registration() {
-        User new_user;
-
         /* Validacia zhody hesiel */
         if(!Objects.equals(password.getText(), password_control.getText())){
             alerts = new Alerts("ERROR");
@@ -48,6 +47,9 @@ public class RegistrationController {
 
             return;
         }
+        User new_user;
+        UsersOps usersOps = UsersOps.getUsersOps();
+        Connection connection = Connection.getConnection();
 
         String first_name_v = first_name.getText().trim();
         String last_name_v = last_name.getText().trim();
@@ -66,6 +68,8 @@ public class RegistrationController {
         }
 
         /* add new user to users array */
-        UsersOps.getUsersOps().add_user(new_user);
+        connection.try_connect_with_server(new_user);
+//        System.out.println("token: " + token);
+        usersOps.add_user(new_user);
     }
 }
