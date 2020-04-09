@@ -4,9 +4,3 @@ martin xxxx 932432842 30-03-2020 test@test.com test user
 User null null 30-03-2020 user user user
 Testicek<3 rebat 4325453432 23-04-1997 test121 test121 user
 try try 493250843 01-05-2020 martin martin user
-w w w 01-04-2020 w w user
-r r r 01-04-2020 r r user
-o oo o 03-04-2020 o o user
-c c c 16-04-2020 c c user
-m m m 03-04-2020 m mm user
-x x x 03-04-2020 x x user

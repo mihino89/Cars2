@@ -5,9 +5,6 @@ import com.groundZer0.autobazar.datamodel.users.User;
 import java.io.*;
 import java.net.Socket;
 import java.net.SocketTimeoutException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
 
 public class Connection implements Serializable{
     private final String HOST = "localhost";
@@ -21,27 +18,23 @@ public class Connection implements Serializable{
     }
 
     public void try_connect_with_server(User user){
-        System.out.println(user.getEmail());
         try (Socket client_socket = new Socket(HOST, PORT)) {
 //            InputStream inputStream = client_socket.getInputStream();
             OutputStream outputStream = client_socket.getOutputStream();
 
-//            ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
+            ObjectInputStream objectInputStream = new ObjectInputStream(client_socket.getInputStream());
 
-            // posli user-a
-//            List<User> users = new ArrayList<>();
-//            users.add(user);
+            System.out.println("test");
+            objectOutputStream.writeObject(user);
 
-            List<User> users = new ArrayList<>();
-            users.add(new User("dsa", "dsa", "dsa", "30-03-2020", "dsa", "dsa", "user"));
-
-            objectOutputStream.writeObject(users);
+            User new_user= (User) objectInputStream.readObject();
+            System.out.println("User password " + new_user.getPassword());
 
             client_socket.close();
 
 //            response = to_server.readLine();
-        } catch (IOException e) {
+        } catch (IOException | ClassNotFoundException e) {
             System.out.println("Client Error: " + e.getMessage());
         }
 

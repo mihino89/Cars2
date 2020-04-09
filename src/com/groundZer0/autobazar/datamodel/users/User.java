@@ -8,6 +8,8 @@ public class User implements Serializable{
     private String first_name;
     private String last_name;
     private String phone_number;
+
+    static final long serialVersionUID = 42L;
     private LocalDate birth;
 
     /* Credentials */
