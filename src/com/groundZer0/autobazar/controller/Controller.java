@@ -1,8 +1,8 @@
 package com.groundZer0.autobazar.controller;
 
-import com.groundZer0.autobazar.datamodel.security.UserSession;
-import com.groundZer0.autobazar.datamodel.users.User;
-import com.groundZer0.autobazar.datamodel.users.UsersOps;
+import com.groundZer0.autobazar.data.security.UserSession;
+import com.groundZer0.autobazar.data.users.User;
+import com.groundZer0.autobazar.data.users.UsersOps;
 import com.groundZer0.autobazar.view.components.Dialog;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;

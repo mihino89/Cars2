@@ -2,8 +2,8 @@ package com.groundZer0.autobazar.controller;
 
 import com.groundZer0.autobazar.networking.Connection;
 import com.groundZer0.autobazar.view.components.Alerts;
-import com.groundZer0.autobazar.datamodel.users.User;
-import com.groundZer0.autobazar.datamodel.users.UsersOps;
+import com.groundZer0.autobazar.data.users.User;
+import com.groundZer0.autobazar.data.users.UsersOps;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.PasswordField;
@@ -13,6 +13,8 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 public class RegistrationController extends Controller {
+    private final String operation_note = "registration";
+    Alerts alerts;
 
     @FXML
     private TextField first_name;
@@ -34,8 +36,6 @@ public class RegistrationController extends Controller {
 
     @FXML
     private PasswordField password_control;
-
-    Alerts alerts;
 
     public void user_registration() {
         /* Validacia zhody hesiel */
@@ -61,10 +61,10 @@ public class RegistrationController extends Controller {
 
         if(last_name_v.equals("")){
             System.out.println("uzivatel nezadal priezvisko");
-            new_user = new User(first_name_v, phone_number_v, birth_v, email_v, password_v, "user");
+            new_user = new User(first_name_v, phone_number_v, birth_v, email_v, password_v, "user", operation_note);
         } else {
             System.out.println("uzivatel zadal aj priezvisko");
-            new_user = new User(first_name_v, last_name_v, phone_number_v, birth_v, email_v, password_v, "user");
+            new_user = new User(first_name_v, last_name_v, phone_number_v, birth_v, email_v, password_v, "user", operation_note);
         }
 
         /* add new user to users array */

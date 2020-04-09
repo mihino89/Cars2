@@ -1,4 +1,4 @@
-package com.groundZer0.autobazar.datamodel.users;
+package com.groundZer0.autobazar.data.users;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -16,8 +16,10 @@ public class User implements Serializable{
     private String email;
     private String password;
     private String privilages;
+    private String operation_note;
 
-    public User(String first_name, String last_name, String phone_number, LocalDate birth, String email, String password, String privilages) {
+    /* Registration constructor */
+    public User(String first_name, String last_name, String phone_number, LocalDate birth, String email, String password, String privilages, String operation_note) {
         this.first_name = first_name;
         this.last_name = last_name;
         this.phone_number = phone_number;
@@ -25,15 +27,31 @@ public class User implements Serializable{
         this.email = email;
         this.password = password;
         this.privilages = privilages;
+        this.operation_note = operation_note;
     }
 
-    public User(String first_name, String phone_number, LocalDate birth, String email, String password, String privilages) {
+    /* Registration constructor */
+    public User(String first_name, String phone_number, LocalDate birth, String email, String password, String privilages, String operation_note) {
         this.first_name = first_name;
         this.phone_number = phone_number;
         this.birth = birth;
         this.email = email;
         this.password = password;
         this.privilages = privilages;
+        this.operation_note = operation_note;
+    }
+
+    /* Login constructor */
+    public User(String email, String password, String privilages, String operation_note) {
+        this.email = email;
+        this.password = password;
+        this.privilages = privilages;
+        this.operation_note = operation_note;
+    }
+
+    /* Operational constructor */
+    public User(String operation_note) {
+        this.operation_note = operation_note;
     }
 
     public User(String dsa, String dsa1, String dsa2, String s, String dsa3, String dsa4, String user) {
@@ -85,5 +103,9 @@ public class User implements Serializable{
 
     public String getPrivilages() {
         return privilages;
+    }
+
+    public String getOperation_note() {
+        return operation_note;
     }
 }

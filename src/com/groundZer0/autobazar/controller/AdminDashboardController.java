@@ -1,10 +1,8 @@
 package com.groundZer0.autobazar.controller;
 
-import com.groundZer0.autobazar.datamodel.users.User;
-import com.groundZer0.autobazar.datamodel.users.UsersOps;
+import com.groundZer0.autobazar.data.users.User;
+import com.groundZer0.autobazar.data.users.UsersOps;
 import com.groundZer0.autobazar.view.components.Alerts;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;

@@ -1,4 +1,4 @@
-package com.groundZer0.autobazar.datamodel.users;
+package com.groundZer0.autobazar.data.users;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -17,7 +17,7 @@ public class UsersOps {
     /* Singleton */
     private static UsersOps usersOps = new UsersOps();
     /* DB of users */
-    private final String file_name = "src/com/groundZer0/autobazar/datamodel/db/users.txt";
+    private final String file_name = "src/com/groundZer0/autobazar/data/db/users.txt";
     Path path = Paths.get(file_name);
 
     private ObservableList<User> list_of_users;
@@ -39,7 +39,7 @@ public class UsersOps {
 
                 String user_birth = user_information[3];
                 LocalDate localDate = LocalDate.parse(user_birth, dateTimeFormatter);
-                User user = new User(user_information[0], user_information[1], user_information[2], localDate, user_information[4], user_information[5], user_information[6]);
+                User user = new User(user_information[0], user_information[1], user_information[2], localDate, user_information[4], user_information[5], user_information[6], "loading");
                 list_of_users.add(user);
             }
             bufferedReader.close();
@@ -53,14 +53,15 @@ public class UsersOps {
 
         try{
             for(User user : list_of_users){
-                bufferedWriter.write(String.format("%s %s %s %s %s %s %s",
+                bufferedWriter.write(String.format("%s %s %s %s %s %s %s %s",
                         user.getFirst_name(),
                         user.getLast_name(),
                         user.getPhone_number(),
                         user.getBirth().format(dateTimeFormatter),
                         user.getEmail(),
                         user.getPassword(),
-                        user.getPrivilages()
+                        user.getPrivilages(),
+                        user.getOperation_note()
                 ));
                 bufferedWriter.newLine();
             }

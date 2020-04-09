@@ -1,9 +1,9 @@
 package com.groundZer0.autobazar.controller;
 
-import com.groundZer0.autobazar.datamodel.cars.Vehicle;
-import com.groundZer0.autobazar.datamodel.cars.VehicleOps;
-import com.groundZer0.autobazar.datamodel.users.User;
-import com.groundZer0.autobazar.datamodel.users.UsersOps;
+import com.groundZer0.autobazar.data.cars.Vehicle;
+import com.groundZer0.autobazar.data.cars.VehicleOps;
+import com.groundZer0.autobazar.data.users.User;
+import com.groundZer0.autobazar.data.users.UsersOps;
 import com.groundZer0.autobazar.view.components.Alerts;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;

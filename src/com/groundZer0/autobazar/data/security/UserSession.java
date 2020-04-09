@@ -1,6 +1,4 @@
-package com.groundZer0.autobazar.datamodel.security;
-
-import com.groundZer0.autobazar.datamodel.users.User;
+package com.groundZer0.autobazar.data.security;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
