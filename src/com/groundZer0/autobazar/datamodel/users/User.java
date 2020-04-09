@@ -1,12 +1,15 @@
 package com.groundZer0.autobazar.datamodel.users;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class User {
+public class User implements Serializable{
     /* Personal informations */
     private String first_name;
     private String last_name;
     private String phone_number;
+
+    static final long serialVersionUID = 42L;
     private LocalDate birth;
 
     /* Credentials */
@@ -31,6 +34,9 @@ public class User {
         this.email = email;
         this.password = password;
         this.privilages = privilages;
+    }
+
+    public User(String dsa, String dsa1, String dsa2, String s, String dsa3, String dsa4, String user) {
     }
 
     public String getFirst_name() {
