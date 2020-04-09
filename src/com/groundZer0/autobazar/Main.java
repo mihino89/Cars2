@@ -37,7 +37,7 @@ public class Main extends Application {
     @Override
     public void stop() {
         try{
-            Connection.getConnection().try_connect_with_server(new User(null));
+            Connection.getConnection().try_connect_with_server(null);
             UsersOps.getUsersOps().users_saving();
             VehicleOps.getVehicleOps().cars_saving();
         } catch (IOException e) {

@@ -48,7 +48,7 @@ public class RegistrationController extends Controller {
             return;
         }
         User new_user;
-        UsersOps usersOps = UsersOps.getUsersOps();
+//        UsersOps usersOps = UsersOps.getUsersOps();
         Connection connection = Connection.getConnection();
 
         String first_name_v = first_name.getText().trim();
@@ -70,6 +70,6 @@ public class RegistrationController extends Controller {
         /* add new user to users array */
         connection.try_connect_with_server(new_user);
 //        System.out.println("token: " + token);
-        usersOps.add_user(new_user);
+//        usersOps.add_user(new_user);
     }
 }

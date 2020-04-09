@@ -1,14 +1,15 @@
 package com.groundZer0.autobazar.networking;
 
 import com.groundZer0.autobazar.data.users.User;
+import com.groundZer0.autobazar.view.components.Alerts;
 
 import java.io.*;
 import java.net.Socket;
+import java.util.Objects;
 
 public class Connection implements Serializable{
     private final String HOST = "localhost";
-    private final int PORT = 8080;
-    private String response="ahoj";
+    private final int PORT = 8000;
 
     private static Connection connection = new Connection();
 
@@ -23,11 +24,18 @@ public class Connection implements Serializable{
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
             ObjectInputStream objectInputStream = new ObjectInputStream(client_socket.getInputStream());
 
+            /* object to server */
             objectOutputStream.writeObject(user);
-
+            /* server response */
             User new_user= (User) objectInputStream.readObject();
-            if(user.getOperation_note() != null){
-                System.out.println("User password " + new_user.getPassword());
+
+            /* if registration is success answer is empty object only with operation argument with string success registered */
+            if(Objects.equals(new_user.getOperation_note(), "success")){
+                System.out.println("Registration was " + new_user.getOperation_note());
+            }
+            else if(Objects.equals(user.getOperation_note(), "fail registered")){
+                Alerts alerts = new Alerts("Error");
+                alerts.show_alert("Registration fail", "Registracia nebola uspesna");
             }
 
             client_socket.close();
@@ -35,6 +43,6 @@ public class Connection implements Serializable{
             System.out.println("Client Error: " + e.getMessage());
         }
 
-//        return response;
+
     }
 }
