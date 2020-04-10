@@ -1,4 +1,4 @@
-package com.groundZer0.autobazar.datamodel.cars;
+package com.groundZer0.autobazar.data.cars;
 
 public class Vehicle {
     private String id;

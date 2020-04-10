@@ -1,9 +1,8 @@
 package com.groundZer0.autobazar.controller;
 
-import com.groundZer0.autobazar.datamodel.cars.Vehicle;
-import com.groundZer0.autobazar.datamodel.cars.VehicleOps;
-import com.groundZer0.autobazar.datamodel.users.User;
-import com.groundZer0.autobazar.datamodel.users.UsersOps;
+import com.groundZer0.autobazar.data.cars.Vehicle;
+import com.groundZer0.autobazar.data.cars.VehicleOps;
+import com.groundZer0.autobazar.data.users.User;
 import com.groundZer0.autobazar.view.components.Alerts;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -12,12 +11,10 @@ import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
-import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class IndexController extends Controller{
-    private List<User> list_of_users;
     Alerts alerts;
 
     @FXML
@@ -57,18 +54,16 @@ public class IndexController extends Controller{
     private Button login;
 
     private User find_owner_of_vehicle(String vehicle_owner_email){
-        for(User user : list_of_users){
-            if (Objects.equals(user.getEmail(), vehicle_owner_email)){
-                return user;
-            }
-        }
+//        for(User user : list_of_users){
+//            if (Objects.equals(user.getEmail(), vehicle_owner_email)){
+//                return user;
+//            }
+//        }
         return null;
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        list_of_users = UsersOps.getUsersOps().getUsers();
-
         list_of_vehicles.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Vehicle>() {
             @Override
             public void changed(ObservableValue<? extends Vehicle> observableValue, Vehicle vehicle, Vehicle t1) {

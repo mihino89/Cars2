@@ -1,8 +1,9 @@
 package com.groundZer0.autobazar.controller;
 
+import com.groundZer0.autobazar.data.users.UsersOps;
+import com.groundZer0.autobazar.networking.Connection;
 import com.groundZer0.autobazar.view.components.Alerts;
-import com.groundZer0.autobazar.datamodel.users.User;
-import com.groundZer0.autobazar.datamodel.users.UsersOps;
+import com.groundZer0.autobazar.data.users.User;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.layout.AnchorPane;
@@ -16,6 +17,7 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class LoginController extends Controller{
+    private final String operation_note = "login_credentials";
     private List<User> list_of_users;
 
     @FXML
@@ -39,35 +41,36 @@ public class LoginController extends Controller{
     Alerts alerts;
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize(URL url, ResourceBundle resourceBundle) {}
+
+    public void authorization(){
         list_of_users = UsersOps.getUsersOps().getUsers();
-    }
 
-    public void authorization(String role){
-        /* Set role in loggin to control user in future requests */
-        this.setLogin_role(role);
-
-        if(Objects.equals(role, "user")){
-            this.scene_switcher2(login_layout, "userDashboard");
-            return;
-        }
-
-        this.scene_switcher2(login_layout, "adminDashboard");
-    }
-
-    public void authentication(){
         for(User user : list_of_users){
-            if (Objects.equals(user.getEmail(), email.getText().trim()) && Objects.equals(user.getPassword(), passwd.getText().trim())) {
-                session_start(user);
-                authorization(user.getPrivilages());
+            if(Objects.equals(user.getPrivilages(), "admin")){
+                this.scene_switcher2(login_layout, "adminDashboard");
                 return;
             }
         }
 
-        email.clear();
-        passwd.clear();
-        alerts = new Alerts("ERROR");
-        alerts.show_alert("Error pri prihaseni", "Zly email alebo heslo");
+        this.scene_switcher2(login_layout, "userDashboard");
+    }
+
+    public void authentication(){
+        Connection connection = Connection.getConnection();
+
+        User auth_user = new User(email.getText().trim(), passwd.getText().trim(), this.operation_note);
+
+        if(!connection.try_connect_with_server(auth_user)){
+            email.clear();
+            passwd.clear();
+            Alerts alerts = new Alerts("ERROR");
+            alerts.show_alert("Error pri prihaseni", "Zly email alebo heslo");
+        } else {
+            /* Login was successful */
+            System.out.println("login successful");
+            authorization();
+        }
     }
 
     public void go_index(){

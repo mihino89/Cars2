@@ -1,4 +1,4 @@
-package com.groundZer0.autobazar.datamodel.cars;
+package com.groundZer0.autobazar.data.cars;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -14,7 +14,7 @@ public class VehicleOps {
 
     private static VehicleOps vehicleOps = new VehicleOps();
     /* DB of users */
-    private final String file_name = "src/com/groundZer0/autobazar/datamodel/db/cars.txt";
+    private final String file_name = "src/com/groundZer0/autobazar/data/db/cars.txt";
     Path path = Paths.get(file_name);
 
     private ObservableList<Vehicle> list_of_vehicles;
