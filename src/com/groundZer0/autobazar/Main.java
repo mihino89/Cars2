@@ -8,8 +8,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-
 public class Main extends Application {
 
     @Override
@@ -33,11 +31,7 @@ public class Main extends Application {
 
     @Override
     public void stop() {
-        try{
-            Connection.getConnection().try_connect_with_server(null);
-            VehicleOps.getVehicleOps().cars_saving();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        Connection.getConnection().try_connect_with_server(null);
+        VehicleOps.getVehicleOps().cars_saving();
     }
 }
