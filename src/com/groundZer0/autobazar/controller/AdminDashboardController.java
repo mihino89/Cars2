@@ -1,7 +1,6 @@
 package com.groundZer0.autobazar.controller;
 
 import com.groundZer0.autobazar.data.users.User;
-import com.groundZer0.autobazar.data.users.UsersOps;
 import com.groundZer0.autobazar.view.components.Alerts;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -52,16 +51,16 @@ public class AdminDashboardController extends Controller{
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        list_of_users = UsersOps.getUsersOps().getUsers();
-        table_users.setItems(list_of_users);
-
-        delete_user.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                User user = table_users.getSelectionModel().getSelectedItem();
-                delete_user(user);
-            }
-        });
+//        list_of_users = UsersOps.getUsersOps().getUsers();
+//        table_users.setItems(list_of_users);
+//
+//        delete_user.setOnAction(new EventHandler<ActionEvent>() {
+//            @Override
+//            public void handle(ActionEvent actionEvent) {
+//                User user = table_users.getSelectionModel().getSelectedItem();
+//                delete_user(user);
+//            }
+//        });
 
 //        table_users.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<User>() {
 //            @Override
@@ -82,9 +81,9 @@ public class AdminDashboardController extends Controller{
         Optional<ButtonType> alert_answer = alert.show_alert("Vymazanie uzivatela", "Ste si isty, ze chcete vymazat uzivatela " + user.getFirst_name());
         System.out.println(user.getFirst_name());
 
-        if(alert_answer.isPresent() && alert_answer.get() == ButtonType.OK){
-            UsersOps.getUsersOps().remove_user(user);
-        }
+//        if(alert_answer.isPresent() && alert_answer.get() == ButtonType.OK){
+//            UsersOps.getUsersOps().remove_user(user);
+//        }
     }
 
     public void do_logout(){

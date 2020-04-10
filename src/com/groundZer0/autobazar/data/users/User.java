@@ -16,6 +16,12 @@ public class User implements Serializable{
     private String email;
     private String password;
     private String privilages;
+
+    /* Security */
+    private byte[] public_key;
+    private String token;
+
+    /* Operationals */
     private String operation_note;
 
     /* Registration constructor */
@@ -41,20 +47,28 @@ public class User implements Serializable{
         this.operation_note = operation_note;
     }
 
-    /* Login constructor */
-    public User(String email, String password, String privilages, String operation_note) {
+    /* Login request constructor */
+    public User(String email, String password, String operation_note) {
         this.email = email;
         this.password = password;
-        this.privilages = privilages;
         this.operation_note = operation_note;
+    }
+
+    /* Login response constructor */
+    public User(String first_name, String last_name, String phone_number, LocalDate birth, String email, String privilages, byte[] public_key, String token) {
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.phone_number = phone_number;
+        this.birth = birth;
+        this.email = email;
+        this.privilages = privilages;
+        this.public_key = public_key;
+        this.token = token;
     }
 
     /* Operational constructor */
     public User(String operation_note) {
         this.operation_note = operation_note;
-    }
-
-    public User(String dsa, String dsa1, String dsa2, String s, String dsa3, String dsa4, String user) {
     }
 
     public String getFirst_name() {
@@ -107,5 +121,33 @@ public class User implements Serializable{
 
     public String getOperation_note() {
         return operation_note;
+    }
+
+    public byte[] getPublic_key() {
+        return public_key;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setBirth(LocalDate birth) {
+        this.birth = birth;
+    }
+
+    public void setPrivilages(String privilages) {
+        this.privilages = privilages;
+    }
+
+    public void setPublic_key(byte[] public_key) {
+        this.public_key = public_key;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public void setOperation_note(String operation_note) {
+        this.operation_note = operation_note;
     }
 }
