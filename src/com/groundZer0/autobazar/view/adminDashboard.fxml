@@ -59,37 +59,32 @@
             <children>
                 <TableView fx:id="table_users" layoutX="-4.0" layoutY="-6.0" prefHeight="406.0" prefWidth="697.0" style="-fx-background-color: e0dace; -fx-border-color: #474541;">
                     <columns>
-                        <TableColumn prefWidth="86.0" text="Meno">
+                        <TableColumn prefWidth="100.0" text="Meno">
                             <cellValueFactory>
                                 <PropertyValueFactory property="first_name"/>
                             </cellValueFactory>
                         </TableColumn>
-                        <TableColumn fx:id="table_lastname" prefWidth="105.0" text="Priezvisko" >
+                        <TableColumn fx:id="table_lastname" prefWidth="115.0" text="Priezvisko" >
                             <cellValueFactory>
                                 <PropertyValueFactory property="last_name"/>
                             </cellValueFactory>
                         </TableColumn>
-                        <TableColumn fx:id="table_phone" prefWidth="103.0" text="Tel. cislo" >
+                        <TableColumn fx:id="table_phone" prefWidth="129.0" text="Tel. cislo" >
                             <cellValueFactory>
                                 <PropertyValueFactory property="phone_number"/>
                             </cellValueFactory>
                         </TableColumn>
-                        <TableColumn fx:id="table_birth" prefWidth="104.0" text="Rok narodenia" >
+                        <TableColumn fx:id="table_birth" prefWidth="100.0" text="Rok narodenia" >
                             <cellValueFactory>
                                 <PropertyValueFactory property="birth"/>
                             </cellValueFactory>
                         </TableColumn>
-                        <TableColumn fx:id="table_email" minWidth="5.0" prefWidth="110.0" text="Email">
+                        <TableColumn fx:id="table_email" minWidth="5.0" prefWidth="150.0" text="Email">
                             <cellValueFactory>
                                 <PropertyValueFactory property="email"/>
                             </cellValueFactory>
                         </TableColumn>
-                        <TableColumn fx:id="table_passwd" prefWidth="90.0" text="Heslo">
-                            <cellValueFactory>
-                                <PropertyValueFactory property="password"/>
-                            </cellValueFactory>
-                        </TableColumn>
-                        <TableColumn fx:id="table_role" prefWidth="96.0" text="Rola">
+                        <TableColumn fx:id="table_role" prefWidth="100.0" text="Rola">
                             <cellValueFactory>
                                 <PropertyValueFactory property="privilages"/>
                             </cellValueFactory>

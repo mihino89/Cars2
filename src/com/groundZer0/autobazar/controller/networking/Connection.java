@@ -3,7 +3,7 @@ package com.groundZer0.autobazar.controller.networking;
 import com.groundZer0.autobazar.controller.Controller;
 import com.groundZer0.autobazar.data.users.AdminOps;
 import com.groundZer0.autobazar.data.users.User;
-import com.groundZer0.autobazar.data.users.UsersOps;
+import com.groundZer0.autobazar.data.users.UserSession;
 
 import java.io.*;
 import java.net.Socket;
@@ -55,11 +55,11 @@ public class Connection extends Controller implements Serializable{
                 if(login_user != null && Objects.equals(login_user.getOperation_note(), "success")){
                     System.out.println("User was succesfull authorized");
                     if(Objects.equals(login_user.getPrivilages(), "user")){
-                        UsersOps.getUsersOps().add_user(new User(login_user.getFirst_name(), login_user.getLast_name(), login_user.getPhone_number(), login_user.getBirth(), login_user.getEmail(), login_user.getPrivilages(), login_user.getPublic_key(), login_user.getToken()));
+                        UserSession.getUserSession().add_user(new User(login_user.getFirst_name(), login_user.getLast_name(), login_user.getPhone_number(), login_user.getBirth(), login_user.getEmail(), login_user.getPrivilages(), login_user.getPublic_key(), login_user.getToken()));
                         return true;
                     }
                     else if(Objects.equals(login_user.getPrivilages(), "admin")){
-                        UsersOps.getUsersOps().add_user(new User(login_user.getFirst_name(), login_user.getLast_name(), login_user.getPhone_number(), login_user.getBirth(), login_user.getEmail(), login_user.getPrivilages(), login_user.getPublic_key(), login_user.getToken()));
+                        UserSession.getUserSession().add_user(new User(login_user.getFirst_name(), login_user.getLast_name(), login_user.getPhone_number(), login_user.getBirth(), login_user.getEmail(), login_user.getPrivilages(), login_user.getPublic_key(), login_user.getToken()));
                         System.out.println("som admin :D");
                         AdminOps adminOps = AdminOps.getAdminOps();
                         User admin_user = new User(user.getEmail(), user.getPassword(), "login_admin_credentials");
@@ -76,6 +76,16 @@ public class Connection extends Controller implements Serializable{
                     }
                 } else {
                     System.out.println("Problem with user authorization");
+                }
+
+                return false;
+            }
+            /* Process od user deleting from admin */
+            else if(Objects.equals(user.getOperation_note(), "delete_user")){
+                User rip_user = (User) objectInputStream.readObject();
+
+                if(rip_user != null && Objects.equals(rip_user.getOperation_note(), "success")){
+                    return true;
                 }
 
                 return false;

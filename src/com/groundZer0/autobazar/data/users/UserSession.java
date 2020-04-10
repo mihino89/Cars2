@@ -3,18 +3,18 @@ package com.groundZer0.autobazar.data.users;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class UsersOps {
+public class UserSession {
 
     /* Singleton */
-    private static UsersOps usersOps = new UsersOps();
+    private static UserSession userSession = new UserSession();
     private ObservableList<User> list_of_users = FXCollections.observableArrayList();
 
     /* Singleton - private constructor */
 //    private UsersOps() {}
 
     /* Singleton - return only one instance of class*/
-    public static UsersOps getUsersOps() {
-        return usersOps;
+    public static UserSession getUserSession() {
+        return userSession;
     }
 
     /* return list of users */

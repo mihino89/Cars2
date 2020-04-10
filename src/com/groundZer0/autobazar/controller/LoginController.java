@@ -1,6 +1,6 @@
 package com.groundZer0.autobazar.controller;
 
-import com.groundZer0.autobazar.data.users.UsersOps;
+import com.groundZer0.autobazar.data.users.UserSession;
 import com.groundZer0.autobazar.controller.networking.Connection;
 import com.groundZer0.autobazar.view.components.Alerts;
 import com.groundZer0.autobazar.data.users.User;
@@ -44,7 +44,7 @@ public class LoginController extends Controller{
     public void initialize(URL url, ResourceBundle resourceBundle) {}
 
     public void authorization(){
-        user_session = UsersOps.getUsersOps().getUsers();
+        user_session = UserSession.getUserSession().getUsers();
         System.out.println("autorizacia");
 
         for(User user : user_session){
