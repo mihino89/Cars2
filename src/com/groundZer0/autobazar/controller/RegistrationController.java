@@ -1,6 +1,6 @@
 package com.groundZer0.autobazar.controller;
 
-import com.groundZer0.autobazar.networking.Connection;
+import com.groundZer0.autobazar.controller.networking.Connection;
 import com.groundZer0.autobazar.view.components.Alerts;
 import com.groundZer0.autobazar.data.users.User;
 import javafx.fxml.FXML;

@@ -1,7 +1,7 @@
 package com.groundZer0.autobazar.controller;
 
 import com.groundZer0.autobazar.data.users.UsersOps;
-import com.groundZer0.autobazar.networking.Connection;
+import com.groundZer0.autobazar.controller.networking.Connection;
 import com.groundZer0.autobazar.view.components.Alerts;
 import com.groundZer0.autobazar.data.users.User;
 import javafx.fxml.FXML;
@@ -18,7 +18,7 @@ import java.util.ResourceBundle;
 
 public class LoginController extends Controller{
     private final String operation_note = "login_credentials";
-    private List<User> list_of_users;
+    private List<User> user_session;
 
     @FXML
     private AnchorPane login_layout;
@@ -44,9 +44,10 @@ public class LoginController extends Controller{
     public void initialize(URL url, ResourceBundle resourceBundle) {}
 
     public void authorization(){
-        list_of_users = UsersOps.getUsersOps().getUsers();
+        user_session = UsersOps.getUsersOps().getUsers();
+        System.out.println("autorizacia");
 
-        for(User user : list_of_users){
+        for(User user : user_session){
             if(Objects.equals(user.getPrivilages(), "admin")){
                 this.scene_switcher2(login_layout, "adminDashboard");
                 return;
@@ -68,7 +69,7 @@ public class LoginController extends Controller{
             alerts.show_alert("Error pri prihaseni", "Zly email alebo heslo");
         } else {
             /* Login was successful */
-            System.out.println("login successful");
+            System.out.println("login successful from login controller");
             authorization();
         }
     }

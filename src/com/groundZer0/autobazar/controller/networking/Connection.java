@@ -1,12 +1,12 @@
-package com.groundZer0.autobazar.networking;
+package com.groundZer0.autobazar.controller.networking;
 
 import com.groundZer0.autobazar.controller.Controller;
+import com.groundZer0.autobazar.data.users.AdminOps;
 import com.groundZer0.autobazar.data.users.User;
 import com.groundZer0.autobazar.data.users.UsersOps;
 
 import java.io.*;
 import java.net.Socket;
-import java.util.Arrays;
 import java.util.Objects;
 
 public class Connection extends Controller implements Serializable{
@@ -55,12 +55,24 @@ public class Connection extends Controller implements Serializable{
                 if(login_user != null && Objects.equals(login_user.getOperation_note(), "success")){
                     System.out.println("User was succesfull authorized");
                     if(Objects.equals(login_user.getPrivilages(), "user")){
-//                        System.out.println(login_user.getFirst_name() + login_user.getLast_name() + login_user.getPhone_number() + login_user.getEmail() + login_user.getPrivilages() + Arrays.toString(login_user.getPublic_key()) + login_user.getToken());
                         UsersOps.getUsersOps().add_user(new User(login_user.getFirst_name(), login_user.getLast_name(), login_user.getPhone_number(), login_user.getBirth(), login_user.getEmail(), login_user.getPrivilages(), login_user.getPublic_key(), login_user.getToken()));
-//                        System.out.println("aj tu to este funguje");
                         return true;
-                    } else {
-                        System.out.println("asi som admin :D");
+                    }
+                    else if(Objects.equals(login_user.getPrivilages(), "admin")){
+                        UsersOps.getUsersOps().add_user(new User(login_user.getFirst_name(), login_user.getLast_name(), login_user.getPhone_number(), login_user.getBirth(), login_user.getEmail(), login_user.getPrivilages(), login_user.getPublic_key(), login_user.getToken()));
+                        System.out.println("som admin :D");
+                        AdminOps adminOps = AdminOps.getAdminOps();
+                        User admin_user = new User(user.getEmail(), user.getPassword(), "login_admin_credentials");
+                        objectOutputStream.writeObject(admin_user);
+
+                        Object[] admin_users = (Object[]) objectInputStream.readObject();
+
+                        for(Object dat : admin_users){
+                            User user_in_admin_list = (User) dat;
+                            adminOps.add_user_in_admin(user_in_admin_list);
+                        }
+
+                        return true;
                     }
                 } else {
                     System.out.println("Problem with user authorization");

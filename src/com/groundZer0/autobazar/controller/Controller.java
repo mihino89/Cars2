@@ -49,6 +49,7 @@ public class Controller implements Initializable {
 
     public void logout(AnchorPane anchorPane){
         /* Premazat pole v UsersOPS */
+        /* Skontroluj ci user nie je admin - ak je vymaz aj list v AdminOps*/
         UsersOps.getUsersOps().remove_all_users();
         scene_switcher2(anchorPane, "index");
     }
