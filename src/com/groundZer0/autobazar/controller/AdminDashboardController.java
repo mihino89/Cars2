@@ -17,6 +17,7 @@ import java.util.ResourceBundle;
 
 public class AdminDashboardController extends Controller{
     private List<User> list_of_admin_users;
+    private String alert_content;
 
     @FXML
     public ContextMenu context_menu;
@@ -75,9 +76,15 @@ public class AdminDashboardController extends Controller{
         table_users.getSelectionModel().selectFirst();
     }
 
+    @Override
+    public void init_alert() {
+        this.alert_content = "Ste si isty, ze chcete vymazat uzivatela ";
+    }
+
     private void delete_user(User user){
+        init_alert();
         Alerts alert = new Alerts("INFORMATION");
-        Optional<ButtonType> alert_answer = alert.show_alert("Vymazanie uzivatela", "Ste si isty, ze chcete vymazat uzivatela " + user.getFirst_name());
+        Optional<ButtonType> alert_answer = alert.show_alert("Vymazanie uzivatela", this.alert_content + user.getFirst_name() + "?");
         System.out.println(user.getFirst_name());
 
         if(alert_answer.isPresent() && alert_answer.get() == ButtonType.OK){

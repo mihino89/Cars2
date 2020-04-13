@@ -1,10 +1,9 @@
 package com.groundZer0.autobazar.controller;
 
 import com.groundZer0.autobazar.data.users.AdminOps;
-import com.groundZer0.autobazar.data.users.User;
 import com.groundZer0.autobazar.data.users.UserSession;
+import com.groundZer0.autobazar.view.components.Alerts;
 import com.groundZer0.autobazar.view.components.Dialog;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
@@ -12,12 +11,13 @@ import javafx.scene.layout.AnchorPane;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
     private String session_token = null;
+    private String alert_content;
 
     private final String base_url = "src/com/groundZer0/autobazar/view/";
 
@@ -26,13 +26,24 @@ public class Controller implements Initializable {
 //        logged_user = null;
     }
 
+    public void init_alert(){
+        this.alert_content = "404 Page not found";
+    }
+
+    public Path get_view_path(String route){
+        return Paths.get(base_url + route + ".fxml");
+    }
+
     public void scene_switcher2(AnchorPane anchorPane, String route){
         try{
             anchorPane.getChildren().clear();
 
-            URL url = Paths.get(base_url + route + ".fxml").toUri().toURL();
+            URL url = get_view_path(route).toUri().toURL();
             anchorPane.getChildren().add(FXMLLoader.load(url));
         } catch (IOException e) {
+            init_alert();
+            Alerts alerts = new Alerts("ERROR");
+            alerts.show_alert("Nieco sa porouchalo...", this.alert_content);
             e.printStackTrace();
         }
     }

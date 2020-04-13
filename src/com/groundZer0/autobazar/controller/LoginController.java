@@ -19,6 +19,7 @@ import java.util.ResourceBundle;
 public class LoginController extends Controller{
     private final String operation_note = "login_credentials";
     private List<User> user_session;
+    private String alert_content;
 
     @FXML
     private AnchorPane login_layout;
@@ -57,6 +58,11 @@ public class LoginController extends Controller{
         this.scene_switcher2(login_layout, "userDashboard");
     }
 
+    @Override
+    public void init_alert() {
+        this.alert_content = "Zly email alebo heslo";
+    }
+
     public void authentication(){
         Connection connection = Connection.getConnection();
 
@@ -65,8 +71,9 @@ public class LoginController extends Controller{
         if(!connection.try_connect_with_server(auth_user)){
             email.clear();
             passwd.clear();
+            init_alert();
             Alerts alerts = new Alerts("ERROR");
-            alerts.show_alert("Error pri prihaseni", "Zly email alebo heslo");
+            alerts.show_alert("Error pri prihaseni", this.alert_content);
         } else {
             /* Login was successful */
             System.out.println("login successful from login controller");
