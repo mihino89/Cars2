@@ -19,6 +19,9 @@ public class Controller implements Initializable {
     private String session_token = null;
     private String alert_content;
 
+    protected final String admin_user_management = "adminDashboard/userManagement";
+    protected final String modal_registration = "modals/registrationModal.fxml";
+
     private final String base_url = "src/com/groundZer0/autobazar/view/";
 
     @Override
@@ -50,7 +53,7 @@ public class Controller implements Initializable {
 
     public void registration_dialog(AnchorPane layout) {
         try {
-            Dialog registration_dialog = new Dialog(layout, "Registracia", "Tento dialog sluzi na registraciu noveho uzivatela", "registrationModal.fxml", "registration");
+            Dialog registration_dialog = new Dialog(layout, "Registracia", "Tento dialog sluzi na registraciu noveho uzivatela", this.modal_registration, "registration");
             registration_dialog.create_dialog();
         } catch (MalformedURLException e) {
             e.printStackTrace();

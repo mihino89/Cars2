@@ -1,5 +1,6 @@
-package com.groundZer0.autobazar.controller;
+package com.groundZer0.autobazar.controller.admin;
 
+import com.groundZer0.autobazar.controller.Controller;
 import com.groundZer0.autobazar.data.users.AdminOps;
 import com.groundZer0.autobazar.data.users.User;
 import com.groundZer0.autobazar.view.components.Alerts;
@@ -15,7 +16,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class AdminDashboardController extends Controller{
+public class AdminDashboardController extends Controller {
     private List<User> list_of_admin_users;
     private String alert_content;
 
@@ -94,5 +95,9 @@ public class AdminDashboardController extends Controller{
 
     public void do_logout(){
         this.logout(user_dashboard_layout);
+    }
+
+    public void do_click(){
+        System.out.println("Clicked!");
     }
 }

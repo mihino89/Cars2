@@ -50,7 +50,7 @@ public class LoginController extends Controller{
 
         for(User user : user_session){
             if(Objects.equals(user.getPrivilages(), "admin")){
-                this.scene_switcher2(login_layout, "adminDashboard");
+                this.scene_switcher2(login_layout, this.admin_user_management);
                 return;
             }
         }
