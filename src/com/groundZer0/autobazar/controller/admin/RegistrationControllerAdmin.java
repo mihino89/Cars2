@@ -2,6 +2,7 @@ package com.groundZer0.autobazar.controller.admin;
 
 import com.groundZer0.autobazar.controller.RegistrationController;
 import com.groundZer0.autobazar.controller.networking.Connection;
+import com.groundZer0.autobazar.data.users.AdminOps;
 import com.groundZer0.autobazar.data.users.User;
 import com.groundZer0.autobazar.view.components.Alerts;
 import javafx.beans.value.ChangeListener;
@@ -83,6 +84,8 @@ public class RegistrationControllerAdmin extends RegistrationController {
         if(!connection.try_connect_with_server(new_user)){
             Alerts alerts = new Alerts("Error");
             alerts.show_alert("Registration fail", "Registracia nebola uspesna");
+        } else {
+            AdminOps.getAdminOps().add_user_in_admin(new_user);
         }
     }
 }

@@ -60,7 +60,6 @@ public class Controller implements Initializable {
                 registration_dialog = new Dialog(layout, "Registracia", "Tento dialog sluzi na registraciu noveho uzivatela", this.modal_registration, "registration");
             }
             else if(Objects.equals(role, "admin")){
-                System.out.println("funguje");
                 registration_dialog = new Dialog(layout, "Registracia", "Tento dialog sluzi na registraciu noveho uzivatela", this.getModal_registration_admin, "registration_admin");
             }
             registration_dialog.create_dialog();

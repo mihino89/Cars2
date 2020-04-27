@@ -69,6 +69,7 @@ public class AdminDashboardController extends Controller {
             @Override
             public void handle(ActionEvent actionEvent) {
                 registration_dialog(user_dashboard_layout, "admin");
+//                AdminOps.getAdminOps().add_user_in_admin();
             }
         });
 
@@ -89,6 +90,7 @@ public class AdminDashboardController extends Controller {
 
         if(alert_answer.isPresent() && alert_answer.get() == ButtonType.OK){
             AdminOps.getAdminOps().remove_user_in_admin(user);
+            // TODO -  musim ho removnut aj na serveri v tejto chvil
         }
     }
 
