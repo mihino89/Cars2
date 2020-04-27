@@ -108,6 +108,6 @@ public class IndexController extends Controller{
     }
 
     public void registration() {
-        this.registration_dialog(index_layout);
+        this.registration_dialog(index_layout, "user");
     }
 }

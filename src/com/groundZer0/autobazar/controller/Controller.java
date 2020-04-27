@@ -13,6 +13,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
@@ -21,6 +22,7 @@ public class Controller implements Initializable {
 
     protected final String admin_user_management = "adminDashboard/userManagement";
     protected final String modal_registration = "modals/registrationModal.fxml";
+    protected final String getModal_registration_admin = "modals/registrationModalAdmin.fxml";
 
     private final String base_url = "src/com/groundZer0/autobazar/view/";
 
@@ -51,9 +53,16 @@ public class Controller implements Initializable {
         }
     }
 
-    public void registration_dialog(AnchorPane layout) {
+    public void registration_dialog(AnchorPane layout, String role) {
+        Dialog registration_dialog = null;
         try {
-            Dialog registration_dialog = new Dialog(layout, "Registracia", "Tento dialog sluzi na registraciu noveho uzivatela", this.modal_registration, "registration");
+            if(Objects.equals(role, "user")){
+                registration_dialog = new Dialog(layout, "Registracia", "Tento dialog sluzi na registraciu noveho uzivatela", this.modal_registration, "registration");
+            }
+            else if(Objects.equals(role, "admin")){
+                System.out.println("funguje");
+                registration_dialog = new Dialog(layout, "Registracia", "Tento dialog sluzi na registraciu noveho uzivatela", this.getModal_registration_admin, "registration");
+            }
             registration_dialog.create_dialog();
         } catch (MalformedURLException e) {
             e.printStackTrace();

@@ -17,22 +17,16 @@ public class RegistrationController extends Controller {
 
     @FXML
     private TextField first_name;
-
     @FXML
     private TextField last_name;
-
     @FXML
     private TextField phone_number;
-
     @FXML
     private DatePicker birth;
-
     @FXML
     private TextField email;
-
     @FXML
     private PasswordField password;
-
     @FXML
     private PasswordField password_control;
 

@@ -86,6 +86,6 @@ public class LoginController extends Controller{
     }
 
     public void registration() {
-        this.registration_dialog(login_layout);
+        this.registration_dialog(login_layout, "user");
     }
 }

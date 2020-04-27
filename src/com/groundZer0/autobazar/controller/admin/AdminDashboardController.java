@@ -22,34 +22,26 @@ public class AdminDashboardController extends Controller {
 
     @FXML
     public ContextMenu context_menu;
-
     @FXML
     public MenuItem delete_user;
-
+    @FXML
+    public MenuItem add_user;
     @FXML
     public TableColumn<User, String> table_name;
-
     @FXML
     public TableColumn<User, String> table_lastname;
-
     @FXML
     public TableColumn<User, String> table_phone;
-
     @FXML
     public TableColumn<User, String> table_birth;
-
     @FXML
     public TableColumn<User, String> table_email;
-
     @FXML
     public TableColumn<User, String> table_passwd;
-
     @FXML
     public TableColumn<User, String> table_role;
-
     @FXML
     public AnchorPane user_dashboard_layout;
-
     @FXML
     public TableView<User> table_users;
 
@@ -70,6 +62,13 @@ public class AdminDashboardController extends Controller {
             public void handle(ActionEvent actionEvent) {
                 User user = table_users.getSelectionModel().getSelectedItem();
                 delete_user(user);
+            }
+        });
+
+        add_user.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                registration_dialog(user_dashboard_layout, "admin");
             }
         });
 
