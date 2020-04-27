@@ -25,14 +25,12 @@
             <Label text="Kontrola hesla:" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
             <PasswordField fx:id="password_control" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
             <fx:define>
-                <ToggleGroup fx:id="RolesGroup"/>
+                <ToggleGroup fx:id="rolesGroup"/>
             </fx:define>
             <HBox GridPane.rowIndex="7" GridPane.columnIndex="0" GridPane.columnSpan="5">
                 <Label text="Rola uzivatela:       "/>
-                <RadioButton fx:id="RoleOptionUser" text="Uzivatel  " GridPane.columnSpan="2" toggleGroup="$RolesGroup"
-                             selected="true" onAction="#handleChange"/>
-                <RadioButton fx:id="RoleOptionAdmin" text="Admin"  GridPane.columnSpan="2" toggleGroup="$RolesGroup"
-                             onAction="#handleChange"/>
+                <RadioButton text="Uzivatel  " GridPane.columnSpan="2" toggleGroup="$rolesGroup" selected="true"/>
+                <RadioButton text="Admin"  GridPane.columnSpan="2" toggleGroup="$rolesGroup"/>
             </HBox>
         </GridPane>
     </content>

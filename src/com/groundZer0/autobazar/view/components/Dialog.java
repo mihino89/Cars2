@@ -1,6 +1,8 @@
 package com.groundZer0.autobazar.view.components;
 
-import com.groundZer0.autobazar.controller.RegistrationController;
+import com.groundZer0.autobazar.controller.user.RegistrationControllerUser;
+import com.groundZer0.autobazar.controller.admin.RegistrationControllerAdmin;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ButtonType;
 import javafx.scene.layout.AnchorPane;
@@ -58,8 +60,14 @@ public class Dialog {
 
         if(result.isPresent() && result.get() == ButtonType.OK) {
             if(Objects.equals(this.dialog_type, "registration")){
-                RegistrationController registrationController = fxmlLoader.getController();
-                registrationController.user_registration();
+                RegistrationControllerUser registrationControllerUser = fxmlLoader.getController();
+                registrationControllerUser.user_registration();
+            }
+            else if(Objects.equals(this.dialog_type, "registration_admin")){
+                RegistrationControllerAdmin registrationControllerAdmin = fxmlLoader.getController();
+                registrationControllerAdmin.user_registration();
+
+                System.out.println("admin");
             }
         }
     }

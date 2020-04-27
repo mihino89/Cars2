@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<DialogPane fx:controller="com.groundZer0.autobazar.controller.RegistrationController"
+<DialogPane fx:controller="com.groundZer0.autobazar.controller.user.RegistrationControllerUser"
             xmlns:fx="http://javafx.com/fxml">
     <headerText>
         Vytvorenie konta
