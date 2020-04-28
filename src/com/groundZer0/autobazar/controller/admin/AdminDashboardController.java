@@ -5,6 +5,7 @@ import com.groundZer0.autobazar.data.users.AdminOps;
 import com.groundZer0.autobazar.data.users.User;
 import com.groundZer0.autobazar.view.components.Alerts;
 
+import com.groundZer0.autobazar.view.components.Dialog;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -26,6 +27,8 @@ public class AdminDashboardController extends Controller {
     public MenuItem delete_user;
     @FXML
     public MenuItem add_user;
+    @FXML
+    public MenuItem edit_user;
     @FXML
     public TableColumn<User, String> table_name;
     @FXML
@@ -64,12 +67,19 @@ public class AdminDashboardController extends Controller {
                 delete_user(user);
             }
         });
-
         add_user.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
                 registration_dialog(user_dashboard_layout, "admin");
-//                AdminOps.getAdminOps().add_user_in_admin();
+            }
+        });
+        edit_user.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                User user = table_users.getSelectionModel().getSelectedItem();
+                edit_user(user);
+                System.out.println("want edit user");
+//                registration_dialog(user_dashboard_layout, "admin");
             }
         });
 
@@ -89,8 +99,14 @@ public class AdminDashboardController extends Controller {
 
         if(alert_answer.isPresent() && alert_answer.get() == ButtonType.OK){
             AdminOps.getAdminOps().remove_user_in_admin(user);
-            // TODO -  musim ho removnut aj na serveri v tejto chvil
         }
+    }
+
+    private void edit_user(User user){
+
+        Dialog edit_dialog = new Dialog(user_dashboard_layout, "Editacia uzivatela",
+                "Tento dialog sluzi na editaciu uzivatela", this.getModal_edit_admin, "edit_user_admin", user);
+        edit_dialog.create_dialog();
     }
 
     public void do_logout(){

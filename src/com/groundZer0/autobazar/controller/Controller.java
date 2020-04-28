@@ -23,6 +23,7 @@ public class Controller implements Initializable {
     protected final String admin_user_management = "adminDashboard/userManagement";
     protected final String modal_registration = "modals/registrationModal.fxml";
     protected final String getModal_registration_admin = "modals/registrationModalAdmin.fxml";
+    protected final String getModal_edit_admin = "modals/editModalAdmin.fxml";
 
     private final String base_url = "src/com/groundZer0/autobazar/view/";
 
@@ -55,17 +56,13 @@ public class Controller implements Initializable {
 
     public void registration_dialog(AnchorPane layout, String role) {
         Dialog registration_dialog = null;
-        try {
-            if(Objects.equals(role, "user")){
-                registration_dialog = new Dialog(layout, "Registracia", "Tento dialog sluzi na registraciu noveho uzivatela", this.modal_registration, "registration");
-            }
-            else if(Objects.equals(role, "admin")){
-                registration_dialog = new Dialog(layout, "Registracia", "Tento dialog sluzi na registraciu noveho uzivatela", this.getModal_registration_admin, "registration_admin");
-            }
-            registration_dialog.create_dialog();
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
+        if(Objects.equals(role, "user")){
+            registration_dialog = new Dialog(layout, "Registracia", "Tento dialog sluzi na registraciu noveho uzivatela", this.modal_registration, "registration");
         }
+        else if(Objects.equals(role, "admin")){
+            registration_dialog = new Dialog(layout, "Registracia", "Tento dialog sluzi na registraciu noveho uzivatela", this.getModal_registration_admin, "registration_admin");
+        }
+        registration_dialog.create_dialog();
     }
 
     protected boolean check_session(){

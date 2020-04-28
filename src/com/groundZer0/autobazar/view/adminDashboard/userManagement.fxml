@@ -94,7 +94,7 @@
                         <ContextMenu fx:id="context_menu">
                             <items>
                                 <MenuItem fx:id="add_user" mnemonicParsing="false" text="Add" />
-                                <MenuItem mnemonicParsing="false" text="Edit" />
+                                <MenuItem fx:id="edit_user" mnemonicParsing="false" text="Edit" />
                                 <MenuItem fx:id="delete_user" mnemonicParsing="false" text="Delete" />
                             </items>
                         </ContextMenu>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<DialogPane fx:controller="com.groundZer0.autobazar.controller.admin.EditControllerAdmin"
+            xmlns:fx="http://javafx.com/fxml">
+    <headerText>
+        Editacia prihlasovacich udajov uzivatela
+    </headerText>
+    <content>
+        <GridPane vgap="10" hgap="10">
+            <Label text="Email:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <TextField fx:id="email" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+            <Label text="Nove heslo:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <PasswordField fx:id="password" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+            <Label text="Kontrola noveho hesla:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+            <PasswordField fx:id="password_control" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+        </GridPane>
+    </content>
+</DialogPane>
