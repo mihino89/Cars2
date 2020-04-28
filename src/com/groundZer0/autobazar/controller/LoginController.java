@@ -46,7 +46,6 @@ public class LoginController extends Controller{
 
     public void authorization(){
         user_session = UserSession.getUserSession().getUsers();
-        System.out.println("autorizacia");
 
         for(User user : user_session){
             if(Objects.equals(user.getPrivilages(), "admin")){

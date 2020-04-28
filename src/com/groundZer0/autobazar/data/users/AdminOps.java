@@ -4,7 +4,6 @@ import com.groundZer0.autobazar.controller.networking.Connection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import javax.swing.*;
 
 public class AdminOps {
     /* Singleton */
@@ -31,22 +30,12 @@ public class AdminOps {
     /*TODO refactoring perzistencie medzi be a admin */
     public void remove_user_in_admin(User user_to_delete){
         user_to_delete.setOperation_note("delete_user");
-        System.out.println(user_to_delete.getOperation_note());
+//        System.out.println(user_to_delete.getOperation_note());
 
         /* request to server to delete user */
         if (Connection.getConnection().try_connect_with_server(user_to_delete)){
             /* if server succes - user removing on the client/admin side */
             list_of_admin_users.remove(user_to_delete);
-        }
-        /* ak nie je na BE pozriem sa este do lokalneho pola */
-        else {
-            for(User user :  list_of_admin_users){
-                if(user_to_delete == user){
-//                    AdminOps.getAdminOps().remove_user_in_admin(user);
-                    System.out.println("match second conditional");
-                    return;
-                }
-            }
         }
     }
 

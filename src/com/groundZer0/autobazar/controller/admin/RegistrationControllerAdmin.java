@@ -74,18 +74,16 @@ public class RegistrationControllerAdmin extends RegistrationController {
 
         if(last_name_v.equals("")){
             System.out.println("uzivatel nezadal priezvisko");
-            new_user = new User(first_name_v, phone_number_v, birth_v, email_v, password_v, this.selected_role, this.operation_note);
+            new_user = new User(first_name_v, phone_number_v, birth_v, email_v, password_v, this.selected_role, this.operation_note_admin);
         } else {
             System.out.println("uzivatel zadal aj priezvisko");
-            new_user = new User(first_name_v, last_name_v, phone_number_v, birth_v, email_v, password_v, this.selected_role, this.operation_note);
+            new_user = new User(first_name_v, last_name_v, phone_number_v, birth_v, email_v, password_v, this.selected_role, this.operation_note_admin);
         }
 
         /* add new user to users array */
         if(!connection.try_connect_with_server(new_user)){
             Alerts alerts = new Alerts("Error");
             alerts.show_alert("Registration fail", "Registracia nebola uspesna");
-        } else {
-            AdminOps.getAdminOps().add_user_in_admin(new_user);
         }
     }
 }

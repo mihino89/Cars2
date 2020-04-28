@@ -34,6 +34,7 @@ public class Connection extends Controller implements Serializable{
                 client_socket.close();
                 return true;
             }
+
             /* Process of registration */
             else if (Objects.equals(user.getOperation_note(), "registration")){
                 /* server response */
@@ -41,26 +42,42 @@ public class Connection extends Controller implements Serializable{
 
                 /* if registration is success answer is empty object only with operation argument with string success registered */
                 if(Objects.equals(new_user.getOperation_note(), "success")){
-                    System.out.println("Registration was !" + new_user.getOperation_note());
+                    System.out.println("Registration was " + new_user.getOperation_note());
                     return true;
-                } else {
-                    return false;
                 }
+
+                return false;
             }
+
+            /* Process of registration */
+            else if (Objects.equals(user.getOperation_note(), "registration_admin")){
+                /* server response */
+                User new_user= (User) objectInputStream.readObject();
+
+                /* if registration is success answer is empty object only with operation argument with string success registered */
+                if(Objects.equals(new_user.getOperation_note(), "success")){
+                    System.out.println("Registration was " + new_user.getOperation_note());
+                    AdminOps.getAdminOps().add_user_in_admin(new_user);
+                    return true;
+                }
+
+                return false;
+            }
+
             /* Process of login */
             else if(Objects.equals(user.getOperation_note(), "login_credentials")){
-                System.out.println("try to login from client");
                 User login_user = (User) objectInputStream.readObject();
 
                 if(login_user != null && Objects.equals(login_user.getOperation_note(), "success")){
-                    System.out.println("User was succesfull authorized");
+                    System.out.println("User" + login_user.getFirst_name() + " was succesfull authorized");
+
                     if(Objects.equals(login_user.getPrivilages(), "user")){
                         UserSession.getUserSession().add_user(new User(login_user.getFirst_name(), login_user.getLast_name(), login_user.getPhone_number(), login_user.getBirth(), login_user.getEmail(), login_user.getPrivilages(), login_user.getPublic_key(), login_user.getToken()));
                         return true;
                     }
+
                     else if(Objects.equals(login_user.getPrivilages(), "admin")){
                         UserSession.getUserSession().add_user(new User(login_user.getFirst_name(), login_user.getLast_name(), login_user.getPhone_number(), login_user.getBirth(), login_user.getEmail(), login_user.getPrivilages(), login_user.getPublic_key(), login_user.getToken()));
-                        System.out.println("som admin :D");
                         AdminOps adminOps = AdminOps.getAdminOps();
                         User admin_user = new User(user.getEmail(), user.getPassword(), "login_admin_credentials");
                         objectOutputStream.writeObject(admin_user);
@@ -80,6 +97,7 @@ public class Connection extends Controller implements Serializable{
 
                 return false;
             }
+
             /* Process od user deleting from admin */
             else if(Objects.equals(user.getOperation_note(), "delete_user")){
                 User rip_user = (User) objectInputStream.readObject();

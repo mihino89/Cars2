@@ -7,6 +7,7 @@ import java.util.Objects;
 
 public class RegistrationController extends Controller {
     protected final String operation_note = "registration";
+    protected final String operation_note_admin = "registration_admin";
     Alerts alerts;
 
     protected boolean validation(PasswordField passwd, PasswordField passwd_check){

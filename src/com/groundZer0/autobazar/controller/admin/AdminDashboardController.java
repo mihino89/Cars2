@@ -86,7 +86,6 @@ public class AdminDashboardController extends Controller {
         init_alert();
         Alerts alert = new Alerts("INFORMATION");
         Optional<ButtonType> alert_answer = alert.show_alert("Vymazanie uzivatela", this.alert_content + user.getFirst_name() + "?");
-        System.out.println(user.getFirst_name());
 
         if(alert_answer.isPresent() && alert_answer.get() == ButtonType.OK){
             AdminOps.getAdminOps().remove_user_in_admin(user);
