@@ -109,6 +109,17 @@ public class Connection extends Controller implements Serializable{
                 return false;
             }
 
+            /* Process od user deleting from admin */
+            else if(Objects.equals(user.getOperation_note(), "edit_user_admin")){
+                User rip_user = (User) objectInputStream.readObject();
+
+                if(rip_user != null && Objects.equals(rip_user.getOperation_note(), "success")){
+                    return true;
+                }
+
+                return false;
+            }
+
         } catch (IOException | ClassNotFoundException e) {
             System.out.println("Client Error: " + e.getMessage());
         }

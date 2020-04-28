@@ -25,6 +25,8 @@ public class Controller implements Initializable {
     protected final String getModal_registration_admin = "modals/registrationModalAdmin.fxml";
     protected final String getModal_edit_admin = "modals/editModalAdmin.fxml";
 
+    protected final String operation_note_admin = "registration_admin";
+
     private final String base_url = "src/com/groundZer0/autobazar/view/";
 
     @Override
