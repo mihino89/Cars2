@@ -21,6 +21,8 @@ public class Controller implements Initializable {
 
     protected final String admin_user_management = "adminDashboard/userManagement";
     protected final String admin_advertisment_management = "adminDashboard/advertismentManagement";
+    protected final String admin_settings = "adminDashboard/settings";
+
     protected final String modal_registration = "modals/registrationModal.fxml";
     protected final String getModal_registration_admin = "modals/registrationModalAdmin.fxml";
     protected final String getModal_edit_admin = "modals/editModalAdmin.fxml";

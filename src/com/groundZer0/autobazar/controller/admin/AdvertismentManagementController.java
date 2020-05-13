@@ -64,4 +64,8 @@ public class AdvertismentManagementController extends Controller {
     public void do_logout(){
         this.logout(advertisment_management_layout);
     }
+
+    public void go_settings(){
+        this.scene_switcher2(advertisment_management_layout, this.admin_settings);
+    }
 }

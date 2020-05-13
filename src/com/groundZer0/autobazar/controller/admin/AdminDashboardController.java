@@ -112,4 +112,8 @@ public class AdminDashboardController extends Controller {
     public void go_advertisment(){
         this.scene_switcher2(admin_dashboard_layout, this.admin_advertisment_management);
     }
+
+    public void go_settings(){
+        this.scene_switcher2(admin_dashboard_layout, this.admin_settings);
+    }
 }
