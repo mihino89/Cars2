@@ -1,5 +1,6 @@
 package com.groundZer0.autobazar.data.cars;
 
+import com.groundZer0.autobazar.data.users.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.json.simple.JSONArray;
@@ -17,7 +18,7 @@ public class VehicleOps {
     private final String file_name = "src/com/groundZer0/autobazar/data/db/cars.json";
     Path path = Paths.get(file_name);
 
-    private ObservableList<Vehicle> list_of_vehicles;
+    private ObservableList<Vehicle> list_of_vehicles = FXCollections.observableArrayList();
 
     public void cars_loading() {
         list_of_vehicles = FXCollections.observableArrayList();
@@ -32,10 +33,17 @@ public class VehicleOps {
 
             JSONArray cars = (JSONArray) obj;
 
+            /**
+             * lambda  expression
+             */
             cars.forEach( car -> parse_cars((JSONObject) car));
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public ObservableList<Vehicle> getList_of_vehicles() {
+        return list_of_vehicles;
     }
 
     public void cars_saving() {
@@ -85,8 +93,8 @@ public class VehicleOps {
         return vehicleOps;
     }
 
-    public ObservableList<Vehicle> getList_of_vehicles() {
-        return list_of_vehicles;
+    public void remove_vehicle(Vehicle vehicle){
+        list_of_vehicles.remove(vehicle);
     }
 
     protected void add_car_to_list(Vehicle vehicle){

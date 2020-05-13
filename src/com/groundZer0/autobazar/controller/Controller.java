@@ -9,7 +9,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -21,6 +20,7 @@ public class Controller implements Initializable {
     private String alert_content;
 
     protected final String admin_user_management = "adminDashboard/userManagement";
+    protected final String admin_advertisment_management = "adminDashboard/advertismentManagement";
     protected final String modal_registration = "modals/registrationModal.fxml";
     protected final String getModal_registration_admin = "modals/registrationModalAdmin.fxml";
     protected final String getModal_edit_admin = "modals/editModalAdmin.fxml";

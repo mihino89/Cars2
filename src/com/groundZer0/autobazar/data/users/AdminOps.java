@@ -27,10 +27,8 @@ public class AdminOps {
         list_of_admin_users.add(new_user);
     }
 
-    /*TODO refactoring perzistencie medzi be a admin */
     public void remove_user_in_admin(User user_to_delete){
         user_to_delete.setOperation_note("delete_user");
-//        System.out.println(user_to_delete.getOperation_note());
 
         /* request to server to delete user */
         if (Connection.getConnection().try_connect_with_server(user_to_delete)){

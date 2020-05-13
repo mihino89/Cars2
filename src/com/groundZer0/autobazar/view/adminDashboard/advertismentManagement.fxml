@@ -14,7 +14,7 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ContextMenu?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
-<AnchorPane fx:id="admin_dashboard_layout" fx:controller="com.groundZer0.autobazar.controller.admin.AdminDashboardController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="960.0" style="-fx-background-color: e0dace;" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="advertisment_management_layout" fx:controller="com.groundZer0.autobazar.controller.admin.AdvertismentManagementController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="960.0" style="-fx-background-color: e0dace;" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <VBox layoutY="-6.0" prefHeight="609.0" prefWidth="442.0" style="-fx-background-color: #474541;">
             <children>
@@ -33,12 +33,12 @@
                 </Button>
                 <Pane prefHeight="547.0" prefWidth="442.0">
                     <children>
-                        <Button layoutX="30.0" mnemonicParsing="false" prefHeight="122.0" prefWidth="144.0" style="-fx-background-color: e0dace; -fx-background-radius: 25;" text="Prehlad uzivatelov" textAlignment="CENTER" wrapText="true">
+                        <Button onAction="#go_user_management" layoutX="30.0" mnemonicParsing="false" prefHeight="122.0" prefWidth="144.0" style="-fx-background-color: e0dace; -fx-background-radius: 25;" text="Prehlad uzivatelov" textAlignment="CENTER" wrapText="true">
                             <font>
                                 <Font size="18.0" />
                             </font>
                         </Button>
-                        <Button onAction="#go_advertisment" layoutX="30.0" layoutY="139.0" mnemonicParsing="false" prefHeight="122.0" prefWidth="144.0" style="-fx-background-color: e0dace; -fx-background-radius: 25;" text="Prehlad inzeratov" textAlignment="CENTER" wrapText="true">
+                        <Button layoutX="30.0" layoutY="139.0" mnemonicParsing="false" prefHeight="122.0" prefWidth="144.0" style="-fx-background-color: e0dace; -fx-background-radius: 25;" text="Prehlad inzeratov" textAlignment="CENTER" wrapText="true">
                             <font>
                                 <Font size="18.0" />
                             </font>
@@ -57,45 +57,38 @@
         </VBox>
         <Pane layoutX="221.0" layoutY="122.0" prefHeight="398.0" prefWidth="694.0" style="-fx-background-color: e0dace;">
             <children>
-                <TableView fx:id="table_users" layoutX="-4.0" layoutY="-6.0" prefHeight="406.0" prefWidth="697.0" style="-fx-background-color: e0dace; -fx-border-color: #474541;">
+                <TableView fx:id="advertisment_cars" layoutX="-4.0" layoutY="-6.0" prefHeight="406.0" prefWidth="697.0" style="-fx-background-color: e0dace; -fx-border-color: #474541;">
                     <columns>
-                        <TableColumn prefWidth="100.0" text="Meno">
+                        <TableColumn prefWidth="300.0" text="Nadpis">
                             <cellValueFactory>
-                                <PropertyValueFactory property="first_name"/>
+                                <PropertyValueFactory property="headline"/>
                             </cellValueFactory>
                         </TableColumn>
-                        <TableColumn fx:id="table_lastname" prefWidth="115.0" text="Priezvisko" >
+                        <TableColumn prefWidth="100.0" text="Znacka vozidla" >
                             <cellValueFactory>
-                                <PropertyValueFactory property="last_name"/>
+                                <PropertyValueFactory property="brand"/>
                             </cellValueFactory>
                         </TableColumn>
-                        <TableColumn fx:id="table_phone" prefWidth="129.0" text="Tel. cislo" >
+                        <TableColumn prefWidth="100.0" text="Model" >
                             <cellValueFactory>
-                                <PropertyValueFactory property="phone_number"/>
+                                <PropertyValueFactory property="model"/>
                             </cellValueFactory>
                         </TableColumn>
-                        <TableColumn fx:id="table_birth" prefWidth="100.0" text="Rok narodenia" >
+                        <TableColumn minWidth="5.0" prefWidth="100.0" text="Email">
                             <cellValueFactory>
-                                <PropertyValueFactory property="birth"/>
+                                <PropertyValueFactory property="owner_email"/>
                             </cellValueFactory>
                         </TableColumn>
-                        <TableColumn fx:id="table_email" minWidth="5.0" prefWidth="150.0" text="Email">
+                        <TableColumn prefWidth="94.0" text="Cena">
                             <cellValueFactory>
-                                <PropertyValueFactory property="email"/>
-                            </cellValueFactory>
-                        </TableColumn>
-                        <TableColumn fx:id="table_role" prefWidth="100.0" text="Rola">
-                            <cellValueFactory>
-                                <PropertyValueFactory property="privilages"/>
+                                <PropertyValueFactory property="price"/>
                             </cellValueFactory>
                         </TableColumn>
                     </columns>
                     <contextMenu>
                         <ContextMenu fx:id="context_menu">
                             <items>
-                                <MenuItem fx:id="add_user" mnemonicParsing="false" text="Add" />
-                                <MenuItem fx:id="edit_user" mnemonicParsing="false" text="Edit" />
-                                <MenuItem fx:id="delete_user" mnemonicParsing="false" text="Delete" />
+                                <MenuItem fx:id="delete_advertisement" mnemonicParsing="false" text="Delete" />
                             </items>
                         </ContextMenu>
                     </contextMenu>

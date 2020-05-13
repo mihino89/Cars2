@@ -44,7 +44,7 @@ public class AdminDashboardController extends Controller {
     @FXML
     public TableColumn<User, String> table_role;
     @FXML
-    public AnchorPane user_dashboard_layout;
+    public AnchorPane admin_dashboard_layout;
     @FXML
     public TableView<User> table_users;
 
@@ -53,13 +53,9 @@ public class AdminDashboardController extends Controller {
 //        list_of_admin_users = AdminOps.getAdminOps().getList_of_admin_users();
         table_users.setItems(AdminOps.getAdminOps().getList_of_admin_users());
 
-//        table_users.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<User>() {
-//            @Override
-//            public void changed(ObservableValue<? extends User> observableValue, User user, User t1) {
-//                User user1 = table_users.getSelectionModel().getSelectedItem();
-//            }
-//        });
-
+        /**
+         * pouzitie eventHandlerov
+         */
         delete_user.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -70,7 +66,7 @@ public class AdminDashboardController extends Controller {
         add_user.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                registration_dialog(user_dashboard_layout, "admin");
+                registration_dialog(admin_dashboard_layout, "admin");
             }
         });
         edit_user.setOnAction(new EventHandler<ActionEvent>() {
@@ -104,16 +100,16 @@ public class AdminDashboardController extends Controller {
 
     private void edit_user(User user){
 
-        Dialog edit_dialog = new Dialog(user_dashboard_layout, "Editacia uzivatela",
+        Dialog edit_dialog = new Dialog(admin_dashboard_layout, "Editacia uzivatela",
                 "Tento dialog sluzi na editaciu uzivatela", this.getModal_edit_admin, "edit_user_admin", user);
         edit_dialog.create_dialog();
     }
 
     public void do_logout(){
-        this.logout(user_dashboard_layout);
+        this.logout(admin_dashboard_layout);
     }
 
-    public void do_click(){
-        System.out.println("Clicked!");
+    public void go_advertisment(){
+        this.scene_switcher2(admin_dashboard_layout, this.admin_advertisment_management);
     }
 }
