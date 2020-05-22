@@ -2,6 +2,7 @@ package com.groundZer0.autobazar.controller.admin;
 
 import com.groundZer0.autobazar.controller.Controller;
 import com.groundZer0.autobazar.controller.networking.Connection;
+import com.groundZer0.autobazar.controller.networking.ConnectionProtectionProxy;
 import com.groundZer0.autobazar.data.users.AdminOps;
 import com.groundZer0.autobazar.data.users.User;
 import com.groundZer0.autobazar.view.components.Alerts;
@@ -36,7 +37,7 @@ public class EditControllerAdmin extends Controller {
 
     public void try_edit_user(User user){
 //        List<User> list_of_admin_users = AdminOps.getAdminOps().getList_of_admin_users();
-        Connection connection = Connection.getConnection();
+        Connection connection = new ConnectionProtectionProxy();
         User new_user = user;
 
         String new_email = email.getText();

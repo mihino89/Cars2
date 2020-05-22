@@ -9,15 +9,18 @@ import java.io.*;
 import java.net.Socket;
 import java.util.Objects;
 
-public class Connection extends Controller implements Serializable{
+public class Connection extends Controller implements ConnectionI, Serializable {
     private final String HOST = "localhost";
     private final int PORT = 8000;
 
-    private static Connection connection = new Connection();
-
-    public static Connection getConnection(){
-        return  connection;
+    public Connection() {
     }
+
+//    private static Connection connection = new Connection();
+//
+//    public static Connection getConnection(){
+//        return  connection;
+//    }
 
     public boolean try_connect_with_server(User user){
         try (Socket client_socket = new Socket(HOST, PORT)) {

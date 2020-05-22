@@ -1,5 +1,6 @@
 package com.groundZer0.autobazar.controller;
 
+import com.groundZer0.autobazar.controller.networking.ConnectionProtectionProxy;
 import com.groundZer0.autobazar.data.users.UserSession;
 import com.groundZer0.autobazar.controller.networking.Connection;
 import com.groundZer0.autobazar.view.components.Alerts;
@@ -63,7 +64,7 @@ public class LoginController extends Controller{
     }
 
     public void authentication(){
-        Connection connection = Connection.getConnection();
+        Connection connection = new ConnectionProtectionProxy();
 
         User auth_user = new User(email.getText().trim(), passwd.getText().trim(), this.operation_note);
 

@@ -31,7 +31,8 @@ public class Main extends Application {
 
     @Override
     public void stop() {
-        Connection.getConnection().try_connect_with_server(null);
+        Connection connection = new Connection();
+        connection.try_connect_with_server(null);
         VehicleOps.getVehicleOps().cars_saving();
     }
 }

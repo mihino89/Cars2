@@ -1,6 +1,7 @@
 package com.groundZer0.autobazar.data.users;
 
 import com.groundZer0.autobazar.controller.networking.Connection;
+import com.groundZer0.autobazar.controller.networking.ConnectionProtectionProxy;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -29,9 +30,10 @@ public class AdminOps {
 
     public void remove_user_in_admin(User user_to_delete){
         user_to_delete.setOperation_note("delete_user");
+        Connection connection = new ConnectionProtectionProxy();
 
         /* request to server to delete user */
-        if (Connection.getConnection().try_connect_with_server(user_to_delete)){
+        if (connection.try_connect_with_server(user_to_delete)){
             /* if server succes - user removing on the client/admin side */
             list_of_admin_users.remove(user_to_delete);
         }

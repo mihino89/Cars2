@@ -2,6 +2,7 @@ package com.groundZer0.autobazar.controller.user;
 
 import com.groundZer0.autobazar.controller.RegistrationController;
 import com.groundZer0.autobazar.controller.networking.Connection;
+import com.groundZer0.autobazar.controller.networking.ConnectionProtectionProxy;
 import com.groundZer0.autobazar.data.users.User;
 import com.groundZer0.autobazar.view.components.Alerts;
 import javafx.fxml.FXML;
@@ -35,7 +36,7 @@ public class RegistrationControllerUser extends RegistrationController {
             return;
         }
         User new_user;
-        Connection connection = Connection.getConnection();
+        Connection connection = new ConnectionProtectionProxy();
 
         String first_name_v = first_name.getText().trim();
         String last_name_v = last_name.getText().trim();
