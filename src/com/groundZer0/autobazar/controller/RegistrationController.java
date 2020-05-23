@@ -10,6 +10,12 @@ public class RegistrationController extends Controller {
     protected final String operation_note_admin = "registration_admin";
     Alerts alerts;
 
+    /**
+     * registration validation
+     * @param passwd
+     * @param passwd_check
+     * @return
+     */
     protected boolean validation(PasswordField passwd, PasswordField passwd_check){
         /* Validacia zhody hesiel */
         if(!Objects.equals(passwd.getText(), passwd_check.getText())){

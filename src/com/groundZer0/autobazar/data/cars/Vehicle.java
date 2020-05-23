@@ -77,6 +77,4 @@ public class Vehicle {
         String format = "%-60s%n\n";
         return String.format(format, check_long_headline);
     }
-
-    //    public abstract void testing_ride();
 }

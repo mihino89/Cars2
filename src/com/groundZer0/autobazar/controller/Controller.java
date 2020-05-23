@@ -32,18 +32,29 @@ public class Controller implements Initializable {
     private final String base_url = "src/com/groundZer0/autobazar/view/";
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-//        logged_user = null;
-    }
+    public void initialize(URL url, ResourceBundle resourceBundle) {}
 
+    /**
+     * Polymorphism function main
+     */
     public void init_alert(){
         this.alert_content = "404 Page not found";
     }
 
-    public Path get_view_path(String route){
+    /**
+     * Helper function to get path
+     * @param route
+     * @return
+     */
+    private Path get_view_path(String route){
         return Paths.get(base_url + route + ".fxml");
     }
 
+    /**
+     * switching scene function
+     * @param anchorPane
+     * @param route
+     */
     public void scene_switcher2(AnchorPane anchorPane, String route){
         try{
             anchorPane.getChildren().clear();
@@ -58,6 +69,11 @@ public class Controller implements Initializable {
         }
     }
 
+    /**
+     * registration dialog function
+     * @param layout
+     * @param role
+     */
     public void registration_dialog(AnchorPane layout, String role) {
         Dialog registration_dialog = null;
         if(Objects.equals(role, "user")){
@@ -69,10 +85,19 @@ public class Controller implements Initializable {
         registration_dialog.create_dialog();
     }
 
+    /**
+     * for checking session in application
+     * TODO time to session and with parsing token check time
+     * @return
+     */
     protected boolean check_session(){
         return session_token != null;
     }
 
+    /**
+     * Main logout function to logout user
+     * @param anchorPane
+     */
     public void logout(AnchorPane anchorPane){
         /* Premazat pole v UsersOPS */
         /* Skontroluj ci user nie je admin - ak je vymaz aj list v AdminOps*/

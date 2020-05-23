@@ -53,6 +53,11 @@ public class IndexController extends Controller{
     @FXML
     private Button login;
 
+    /**
+     * to find owner of vehicle
+     * @param vehicle_owner_email
+     * @return
+     */
     private User find_owner_of_vehicle(String vehicle_owner_email){
 //        for(User user : list_of_users){
 //            if (Objects.equals(user.getEmail(), vehicle_owner_email)){
@@ -96,10 +101,16 @@ public class IndexController extends Controller{
         list_of_vehicles.getSelectionModel().selectFirst();
     }
 
+    /**
+     * login function
+     */
     public void do_login(){
         scene_switcher2(index_layout, "login");
     }
 
+    /**
+     * buy function restrict in index view
+     */
     public void buy_car(){
         if(!check_session()){
             alerts = new Alerts("WARNING");
@@ -107,6 +118,9 @@ public class IndexController extends Controller{
         }
     }
 
+    /**
+     * registration which call registration dialog in controller
+     */
     public void registration() {
         this.registration_dialog(index_layout, "user");
     }

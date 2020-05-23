@@ -9,9 +9,6 @@ public class UserSession {
     private static UserSession userSession = new UserSession();
     private ObservableList<User> list_of_users = FXCollections.observableArrayList();
 
-    /* Singleton - private constructor */
-//    private UsersOps() {}
-
     /* Singleton - return only one instance of class*/
     public static UserSession getUserSession() {
         return userSession;
@@ -26,14 +23,25 @@ public class UserSession {
         this.list_of_users = users;
     }
 
+    /**
+     * add user function
+     * @param new_user
+     */
     public void add_user(User new_user){
         list_of_users.add(new_user);
     }
 
+    /**
+     * remove function for the list
+     * @param new_user
+     */
     public void remove_user(User new_user){
         list_of_users.remove(new_user);
     }
 
+    /**
+     * remove all user in list
+     */
     public void remove_all_users(){
         list_of_users.removeAll(list_of_users);
     }

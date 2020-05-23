@@ -3,7 +3,6 @@ package com.groundZer0.autobazar.controller.admin;
 import com.groundZer0.autobazar.controller.Controller;
 import com.groundZer0.autobazar.data.cars.Vehicle;
 import com.groundZer0.autobazar.data.cars.VehicleOps;
-import com.groundZer0.autobazar.data.users.AdminOps;
 import com.groundZer0.autobazar.view.components.Alerts;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -42,11 +41,18 @@ public class AdvertismentManagementController extends Controller {
         });
     }
 
+    /**
+     * polymorphizm function for initing alert content
+     */
     @Override
     public void init_alert() {
         this.alert_content = "Ste si isty, ze chcete vymazat inzerat ";
     }
 
+    /**
+     * Function to delete vehicle
+     * @param vehicle
+     */
     private void delete_vehicle(Vehicle vehicle){
         init_alert();
         Alerts alert = new Alerts("INFORMATION");
@@ -57,14 +63,23 @@ public class AdvertismentManagementController extends Controller {
         }
     }
 
-    public void go_user_management(){
-        this.scene_switcher2(advertisment_management_layout, this.admin_user_management);
-    }
-
+    /**
+     * Logout function
+     */
     public void do_logout(){
         this.logout(advertisment_management_layout);
     }
 
+    /**
+     * Change screen function
+     */
+    public void go_user_management(){
+        this.scene_switcher2(advertisment_management_layout, this.admin_user_management);
+    }
+
+    /**
+     * Change screen function
+     */
     public void go_settings(){
         this.scene_switcher2(advertisment_management_layout, this.admin_settings);
     }

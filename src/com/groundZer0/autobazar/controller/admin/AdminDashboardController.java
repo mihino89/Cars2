@@ -17,6 +17,9 @@ import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+/**
+ *
+ */
 public class AdminDashboardController extends Controller {
     private List<User> list_of_admin_users;
     private String alert_content;
@@ -50,12 +53,9 @@ public class AdminDashboardController extends Controller {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-//        list_of_admin_users = AdminOps.getAdminOps().getList_of_admin_users();
+
         table_users.setItems(AdminOps.getAdminOps().getList_of_admin_users());
 
-        /**
-         * pouzitie eventHandlerov
-         */
         delete_user.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -63,12 +63,14 @@ public class AdminDashboardController extends Controller {
                 delete_user(user);
             }
         });
+
         add_user.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
                 registration_dialog(admin_dashboard_layout, "admin");
             }
         });
+
         edit_user.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -83,11 +85,18 @@ public class AdminDashboardController extends Controller {
         table_users.getSelectionModel().selectFirst();
     }
 
+    /**
+     * polymorphizm function for initing alert content
+     */
     @Override
     public void init_alert() {
         this.alert_content = "Ste si isty, ze chcete vymazat uzivatela ";
     }
 
+    /**
+     * Function for deleting user
+     * @param user
+     */
     private void delete_user(User user){
         init_alert();
         Alerts alert = new Alerts("INFORMATION");
@@ -98,6 +107,10 @@ public class AdminDashboardController extends Controller {
         }
     }
 
+    /**
+     * Function for editing user
+     * @param user
+     */
     private void edit_user(User user){
 
         Dialog edit_dialog = new Dialog(admin_dashboard_layout, "Editacia uzivatela",
@@ -105,14 +118,23 @@ public class AdminDashboardController extends Controller {
         edit_dialog.create_dialog();
     }
 
+    /**
+     * Logout function
+     */
     public void do_logout(){
         this.logout(admin_dashboard_layout);
     }
 
+    /**
+     * Change screen function
+     */
     public void go_advertisment(){
         this.scene_switcher2(admin_dashboard_layout, this.admin_advertisment_management);
     }
 
+    /**
+     * Change  screen function
+     */
     public void go_settings(){
         this.scene_switcher2(admin_dashboard_layout, this.admin_settings);
     }

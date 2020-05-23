@@ -29,14 +29,21 @@ public class EditControllerAdmin extends Controller {
         email.setText(this.email_old);
     }
 
+    /**
+     * editing validation
+     * @param email_old
+     */
     public void edit_init(String email_old) {
         this.email_old = email_old;
 
         email.setText(email_old);
     }
 
+    /**
+     * Editing user, password editing not applied
+     * @param user
+     */
     public void try_edit_user(User user){
-//        List<User> list_of_admin_users = AdminOps.getAdminOps().getList_of_admin_users();
         Connection connection = new ConnectionProtectionProxy();
         User new_user = user;
 
@@ -45,8 +52,10 @@ public class EditControllerAdmin extends Controller {
         String new_passwd_control = password_control.getText();
 
         if(!(Objects.equals(user.getEmail(), new_email)) && new_passwd.length() <= 0){
+
             /* Vymaze sa stary user */
             AdminOps.getAdminOps().remove_user_in_admin(user);
+
             /* zmenim email novemu */
             new_user.setEmail(new_email);
 
@@ -67,11 +76,10 @@ public class EditControllerAdmin extends Controller {
                 alerts.show_alert("Registration fail", "Registracia nebola uspesna");
                 return;
             }
-//            /* Vymaze sa stary user */
-//            AdminOps.getAdminOps().remove_user_in_admin(user);
+
             return;
         }
-        // TODO validacia na password
+
         if(Objects.equals(user.getEmail(), new_email) && new_passwd.length() > 0){
             System.out.println("Chcem editovat len heslo");
             return;
@@ -81,6 +89,7 @@ public class EditControllerAdmin extends Controller {
             System.out.println("Email was edited a heslo chcem editovat");
             return;
         }
-        System.out.println("email wasnt edite " + new_email + " : " + user.getEmail());
+
+        System.out.println("email was not edited " + new_email + " : " + user.getEmail());
     }
 }

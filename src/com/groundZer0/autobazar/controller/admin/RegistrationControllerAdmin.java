@@ -3,8 +3,8 @@ package com.groundZer0.autobazar.controller.admin;
 import com.groundZer0.autobazar.controller.RegistrationController;
 import com.groundZer0.autobazar.controller.networking.Connection;
 import com.groundZer0.autobazar.controller.networking.ConnectionProtectionProxy;
-import com.groundZer0.autobazar.data.users.AdminOps;
 import com.groundZer0.autobazar.data.users.User;
+import com.groundZer0.autobazar.interfaces.RegistrationI;
 import com.groundZer0.autobazar.view.components.Alerts;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -16,7 +16,7 @@ import java.time.LocalDate;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class RegistrationControllerAdmin extends RegistrationController {
+public class RegistrationControllerAdmin extends RegistrationController implements RegistrationI {
     private String selected_role = "user";
 
     @FXML
@@ -57,8 +57,10 @@ public class RegistrationControllerAdmin extends RegistrationController {
         });
     }
 
+    /**
+     * user registration process function
+     */
     public void user_registration() {
-
         if(!validation(password, password_control)){
             return;
         }

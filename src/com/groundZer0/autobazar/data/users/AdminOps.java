@@ -20,14 +20,18 @@ public class AdminOps {
         return list_of_admin_users;
     }
 
-    public void setList_of_admin_users(ObservableList<User> list_of_admin_users) {
-        this.list_of_admin_users = list_of_admin_users;
-    }
-
+    /**
+     * add new user to list
+     * @param new_user
+     */
     public void add_user_in_admin(User new_user){
         list_of_admin_users.add(new_user);
     }
 
+    /**
+     * remove user as admin
+     * @param user_to_delete
+     */
     public void remove_user_in_admin(User user_to_delete){
         user_to_delete.setOperation_note("delete_user");
         Connection connection = new ConnectionProtectionProxy();

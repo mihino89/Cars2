@@ -14,12 +14,14 @@ import java.nio.file.Paths;
 public class VehicleOps {
 
     private static VehicleOps vehicleOps = new VehicleOps();
-    /* DB of users */
     private final String file_name = "src/com/groundZer0/autobazar/data/db/cars.json";
     Path path = Paths.get(file_name);
 
     private ObservableList<Vehicle> list_of_vehicles = FXCollections.observableArrayList();
 
+    /**
+     * Function to loading cars from db when app starting
+     */
     public void cars_loading() {
         list_of_vehicles = FXCollections.observableArrayList();
         JSONParser jsonParser = new JSONParser();
@@ -33,19 +35,23 @@ public class VehicleOps {
 
             JSONArray cars = (JSONArray) obj;
 
-            /**
-             * lambda  expression
-             */
             cars.forEach( car -> parse_cars((JSONObject) car));
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    /**
+     * get list of vehicles
+     * @return
+     */
     public ObservableList<Vehicle> getList_of_vehicles() {
         return list_of_vehicles;
     }
 
+    /**
+     * saving cars to json when app is closed
+     */
     public void cars_saving() {
         JSONArray cars = new JSONArray();
         System.out.println("users length: " + list_of_vehicles.size());
@@ -74,6 +80,10 @@ public class VehicleOps {
         }
     }
 
+    /**
+     * function for parsing cars
+     * @param car
+     */
     private void parse_cars(org.json.simple.JSONObject car){
         String id = (String) car.get("id");
         String type = (String) car.get("type");

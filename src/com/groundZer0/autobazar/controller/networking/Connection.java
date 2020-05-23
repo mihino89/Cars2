@@ -13,15 +13,13 @@ public class Connection extends Controller implements ConnectionI, Serializable 
     private final String HOST = "localhost";
     private final int PORT = 8000;
 
-    public Connection() {
-    }
+    public Connection() {}
 
-//    private static Connection connection = new Connection();
-//
-//    public static Connection getConnection(){
-//        return  connection;
-//    }
-
+    /**
+     * try to connect with server and take a dialog with him
+     * @param user
+     * @return
+     */
     public boolean try_connect_with_server(User user){
         try (Socket client_socket = new Socket(HOST, PORT)) {
             OutputStream outputStream = client_socket.getOutputStream();

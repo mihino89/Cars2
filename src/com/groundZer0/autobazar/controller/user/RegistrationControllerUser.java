@@ -4,6 +4,7 @@ import com.groundZer0.autobazar.controller.RegistrationController;
 import com.groundZer0.autobazar.controller.networking.Connection;
 import com.groundZer0.autobazar.controller.networking.ConnectionProtectionProxy;
 import com.groundZer0.autobazar.data.users.User;
+import com.groundZer0.autobazar.interfaces.RegistrationI;
 import com.groundZer0.autobazar.view.components.Alerts;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
@@ -12,9 +13,7 @@ import javafx.scene.control.TextField;
 
 import java.time.LocalDate;
 
-public class RegistrationControllerUser extends RegistrationController {
-    Alerts alerts;
-
+public class RegistrationControllerUser extends RegistrationController implements RegistrationI{
     @FXML
     private TextField first_name;
     @FXML
@@ -30,6 +29,9 @@ public class RegistrationControllerUser extends RegistrationController {
     @FXML
     private PasswordField password_control;
 
+    /**
+     * function to user registration
+     */
     public void user_registration() {
         /* Validacia zhody hesiel */
         if(!validation(password, password_control)){

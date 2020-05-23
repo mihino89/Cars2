@@ -45,6 +45,9 @@ public class LoginController extends Controller{
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {}
 
+    /**
+     * authorisation process in login
+     */
     public void authorization(){
         user_session = UserSession.getUserSession().getUsers();
 
@@ -58,11 +61,17 @@ public class LoginController extends Controller{
         this.scene_switcher2(login_layout, "userDashboard");
     }
 
+    /**
+     * polymorphism function to set alert content
+     */
     @Override
     public void init_alert() {
         this.alert_content = "Zly email alebo heslo";
     }
 
+    /**
+     * authentication process with server credential validation
+     */
     public void authentication(){
         Connection connection = new ConnectionProtectionProxy();
 
@@ -81,10 +90,16 @@ public class LoginController extends Controller{
         }
     }
 
+    /**
+     * change screen function
+     */
     public void go_index(){
         scene_switcher2(login_layout, "index");
     }
 
+    /**
+     * change screen function
+     */
     public void registration() {
         this.registration_dialog(login_layout, "user");
     }

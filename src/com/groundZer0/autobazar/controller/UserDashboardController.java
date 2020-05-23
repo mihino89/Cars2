@@ -12,6 +12,9 @@ public class UserDashboardController extends Controller {
     @FXML
     public AnchorPane user_dashboard_layout;
 
+    /**
+     * logout function
+     */
     public void do_logout(){
         this.logout(user_dashboard_layout);
     }
